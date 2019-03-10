@@ -20,7 +20,7 @@ public class PokeDexInterface extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) {
 
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -28,11 +28,11 @@ public class PokeDexInterface extends Application {
         grid.setVgap(10);
         grid.setPadding(new Insets(25,25,25,25));
 
-        Scene scene = new Scene(grid, 500, 750);
+        Scene scene = new Scene(grid, 700, 600);
+        stage.setTitle("Pokedex");
+        stage.setScene(scene);
+        stage.show();
 
 
-        Button btn = new Button();
-        btn.setText("Select Generation");
-        btn.setOnAction(new EventHandler<ActionEvent>);
     }
 }
