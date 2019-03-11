@@ -15,7 +15,7 @@ public class Tests {
     public void testReturnPokemon() {
         final PokemonSelection pokemon = new PokemonSelection();
         final int input = 004;
-        final String output = pokemon.main(input);
+        final int output = pokemon.main(input);
         Assert.assertEquals(input, output);
     }
 }
