@@ -3,7 +3,13 @@ package edu.bsu.cs222;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,7 +34,18 @@ public class PokeDexInterface extends Application {
         grid.setVgap(10);
         grid.setPadding(new Insets(25,25,25,25));
 
-        Scene scene = new Scene(grid, 700, 600);
+        BorderPane pane = new BorderPane();
+        Text title = new Text("Pokedex");
+        title.setFont(Font.font("Times New Roman"));
+        title.setFill(Color.CRIMSON);
+/*
+        Image pokeballImage = new Image("addimage/Pokeball.png");
+        ImageView addPokeballImage = new ImageView(pokeballImage);
+*/
+        pane.setTop(title);
+        //pane.setTop(addPokeballImage);
+
+        Scene scene = new Scene(pane, 400, 400);
         stage.setTitle("Pokedex");
         stage.setScene(scene);
         stage.show();
