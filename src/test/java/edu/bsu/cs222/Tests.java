@@ -14,16 +14,16 @@ public class Tests {
     @Test
     public void testReturnPokemon() {
         final PokemonSelection pokemon = new PokemonSelection();
-        final int input = 004;
-        final int output = pokemon.main(input);
+        final int id = 004;
+        final int output = pokemon.main(id);
         Assert.assertEquals(input, output);
     }
 
     @Test
     public void testReturnPokemonName(){
-        final PokemonSelection pokemonName= new PokemonSelection();
-        final String output = pokemonName.getName();
-        Assert.assertEquals(input,output);
+        final PokemonData pokemonData = new PokemonData();
+        String pokemonName = Poke
+        Assert.assertEquals();
     }
 
     @Test

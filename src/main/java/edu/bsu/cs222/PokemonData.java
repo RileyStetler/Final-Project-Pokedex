@@ -26,7 +26,8 @@ public class PokemonData {
         System.out.println("Pokemon Name: " + pokemon.getName());
         System.out.println("Height: " + (pokemon.getHeight()) * 0.1 + "m");
         System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + "kg");
-        System.out.println("Type: " + pokemonType.getPokemon());
+        System.out.println("Base Experience: " + pokemon.getBaseExperience() + " XP");
+        System.out.println("Type: " + pokeApi.getType(id).getName());
         System.out.println("Generation: " + IDnumber.getGeneration().getName());
         System.out.println("Ability: " + Abilities.getName());
 
