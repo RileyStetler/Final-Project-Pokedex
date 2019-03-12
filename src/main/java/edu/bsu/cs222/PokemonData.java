@@ -26,8 +26,7 @@ public class PokemonData {
         System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + "kg");
         System.out.println();
         System.out.println("Generation: " + IDnumber.getGeneration().getName());
-        //System.out.println(type);
-
+        System.out.println("Evolves from: " + IDnumber.getEvolvesFromSpecies().getName());
 
 
         //ID
