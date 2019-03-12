@@ -38,12 +38,12 @@ public class PokeDexInterface extends Application {
         Text title = new Text("Pokedex");
         title.setFont(Font.font("Times New Roman"));
         title.setFill(Color.CRIMSON);
-
+/*
         Image pokeballImage = new Image("addimage/Pokeball.png");
         ImageView addPokeballImage = new ImageView(pokeballImage);
-
+*/
         pane.setTop(title);
-        pane.setTop(addPokeballImage);
+        //pane.setTop(addPokeballImage);
 
         Scene scene = new Scene(pane, 400, 400);
         stage.setTitle("Pokedex");
