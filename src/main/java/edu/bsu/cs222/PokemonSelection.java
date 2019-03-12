@@ -11,11 +11,12 @@ public class PokemonSelection {
 
 
     private static void Pokemon(int id) {
+        /*
         System.out.println("Enter a Pokemon ID to search");
         Scanner console = new Scanner(System.in);
         int pokeSelection = console.nextInt();
         System.out.println(pokeSelection);
-        PokeApi pokeApi = new PokeApiClient();
+
         PokemonSpecies IDNumber = pokeApi.getPokemonSpecies(pokeSelection);
         System.out.println(IDNumber.getName());
         System.out.println(IDNumber.getGeneration().getName());
@@ -25,18 +26,13 @@ public class PokemonSelection {
         System.out.println(IDNumber.getHabitat().getName());
         System.out.println();
         System.out.println();
+        */
 
+        PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(1);
         System.out.println(pokemon);
 
 
-
-
-        if (pokeSelection == 1) {
-            System.out.println("This is a starter pokemon and didn't evolve from another Pokemon.");
-        } else {
-            System.out.println(IDNumber.getEvolvesFromSpecies().getName());
-        }
     }
 
     public static void main(String[] args) {
