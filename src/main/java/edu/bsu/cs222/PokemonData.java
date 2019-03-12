@@ -7,27 +7,27 @@ import me.sargunvohra.lib.pokekotlin.model.*;
 import java.util.Scanner;
 
 public class PokemonData {
-    private static void Pokemon() {
-        Scanner console = new Scanner(System.in);
+    public static void Pokemon(int id) {
+        //Scanner console = new Scanner(System.in);
 
-        System.out.println("Enter a PokeMon ID: ");
-        int id = console.nextInt();
+        //System.out.println("Enter a Pokemon ID: ");
+        //int id = console.nextInt();
 
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
         PokemonSpecies IDnumber = pokeApi.getPokemonSpecies(id);
         //Generation type = pokeApi.getGeneration(id);
-        Type pokemonType =pokeApi.getType(id);
+        Type pokemonType = pokeApi.getType(id);
         Ability Abilities = pokeApi.getAbility(id);
 
         //System.out.println(pokemon);
         System.out.println();
         System.out.println("Pokemon ID: " + pokemon.getId());
         System.out.println("Pokemon Name: " + pokemon.getName());
-        System.out.println("Height: " + (pokemon.getHeight()) * 0.1 + "m");
-        System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + "kg");
+        System.out.println("Height: " + (pokemon.getHeight()) * 0.1 + " m");
+        System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + " kg");
         System.out.println("Base Experience: " + pokemon.getBaseExperience() + " XP");
-        System.out.println("Type: " + pokeApi.getType(id).getName());
+        System.out.println("Type: " + pokemonType.getName());
         System.out.println("Generation: " + IDnumber.getGeneration().getName());
         System.out.println("Ability: " + Abilities.getName());
 
@@ -55,6 +55,6 @@ public class PokemonData {
     }
 
     public static void main(String[] args) {
-        PokemonData.Pokemon();
+        PokemonData.Pokemon(Integer.parseInt(String.valueOf(args)));
     }
 }

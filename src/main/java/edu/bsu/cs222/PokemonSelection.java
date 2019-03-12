@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class PokemonSelection {
 
-
+    /*
     private static void Pokemon() {
 
         System.out.println("Enter a Pokemon ID to search");
@@ -35,27 +35,27 @@ public class PokemonSelection {
 
     }
 
+
     public static void main(String[] args) {
       PokemonSelection.Pokemon();
     }
-/*
-    public static int main(int pokemon) {
+    */
+
+    public static int PokemonId(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        Scanner console = new Scanner(System.in);
-        int pokemonSelection = console.nextInt();
-        PokemonSpecies bulbasaur = pokeApi.getPokemonSpecies(pokemonSelection);
-
-        TypeRelations typeRelations = new TypeRelations();
-        Type type = new Type();
-        NamedApiResource namedApi = new NamedApiResource();
-        PokemonStat stat = new PokemonStat(namedApi,1,1);
-        PokemonStat ivysaur = stat.getBaseStat(pokemonSelection);
-        System.out.println(bulbasaur.getId());
-        System.out.println(bulbasaur.getName());
-        System.out.println(bulbasaur.getFormDescriptions());
-        System.out.println(bulbasaur.get);
-
-        return pokemonSelection;
+        Pokemon pokemon = pokeApi.getPokemon(id);
+        return pokemon.getId();
     }
-*/
+
+    public static String PokemonName(String id) {
+        PokeApi pokeApi = new PokeApiClient();
+        Pokemon pokemon = pokeApi.getPokemon(Integer.parseInt(id));
+        return pokemon.getName();
+    }
+
+    public static String PokemonGeneration(String id) {
+        PokeApi pokeApi = new PokeApiClient();
+        PokemonSpecies pokemonSpecies = pokeApi.getPokemonSpecies(Integer.parseInt(id));
+        return pokemonSpecies.getGeneration().getName();
+    }
 }
