@@ -16,6 +16,7 @@ public class PokemonData {
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
         PokemonSpecies IDnumber = pokeApi.getPokemonSpecies(id);
+        //Generation type = pokeApi.getGeneration(id);
 
         //System.out.println(pokemon);
         System.out.println();
@@ -24,7 +25,8 @@ public class PokemonData {
         System.out.println("Height: " + (pokemon.getHeight()) * 0.1 + "m");
         System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + "kg");
         System.out.println();
-        System.out.println(IDnumber.getHabitat().getName());
+        System.out.println("Generation: " + IDnumber.getGeneration().getName());
+        //System.out.println(type);
 
 
 
