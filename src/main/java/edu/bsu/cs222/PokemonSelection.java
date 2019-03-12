@@ -10,12 +10,16 @@ import java.util.Scanner;
 public class PokemonSelection {
 
 
-    private static void Pokemon(int id) {
-        /*
+    private static void Pokemon() {
+
         System.out.println("Enter a Pokemon ID to search");
         Scanner console = new Scanner(System.in);
         int pokeSelection = console.nextInt();
         System.out.println(pokeSelection);
+
+        PokeApi pokeApi = new PokeApiClient();
+        Pokemon pokemon = pokeApi.getPokemon(1);
+        System.out.println(pokemon);
 
         PokemonSpecies IDNumber = pokeApi.getPokemonSpecies(pokeSelection);
         System.out.println(IDNumber.getName());
@@ -26,17 +30,13 @@ public class PokemonSelection {
         System.out.println(IDNumber.getHabitat().getName());
         System.out.println();
         System.out.println();
-        */
 
-        PokeApi pokeApi = new PokeApiClient();
-        Pokemon pokemon = pokeApi.getPokemon(1);
-        System.out.println(pokemon);
 
 
     }
 
     public static void main(String[] args) {
-      PokemonSelection.Pokemon(1);
+      PokemonSelection.Pokemon();
     }
 /*
     public static int main(int pokemon) {
