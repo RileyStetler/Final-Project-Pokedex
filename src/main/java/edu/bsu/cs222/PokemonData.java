@@ -29,7 +29,7 @@ public class PokemonData {
         System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + "kg");
         System.out.println("Type: " + pokemonType.getPokemon());
         System.out.println("Generation: " + IDnumber.getGeneration().getName());
-        System.out.println("Ability: " + Abilities.getName());
+        //System.out.println("Ability: " + Abilities.getName());
         //System.out.println(IDnumber.getEvolutionChain().getName());w
 
 //yes
