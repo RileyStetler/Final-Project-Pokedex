@@ -28,7 +28,7 @@ public class PokemonData {
         System.out.println("Generation: " + IDnumber.getGeneration().getName());
         System.out.println(IDnumber.getEvolvesFromSpecies().getName());
 
-
+//yes
         //ID
         //Name
         //Base stats
