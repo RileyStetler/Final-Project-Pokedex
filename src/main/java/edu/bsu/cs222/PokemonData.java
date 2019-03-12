@@ -2,9 +2,7 @@ package edu.bsu.cs222;
 
 import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
-import me.sargunvohra.lib.pokekotlin.model.Pokemon;
-import me.sargunvohra.lib.pokekotlin.model.PokemonAbility;
-import me.sargunvohra.lib.pokekotlin.model.PokemonType;
+import me.sargunvohra.lib.pokekotlin.model.*;
 
 import java.util.Scanner;
 
@@ -17,15 +15,16 @@ public class PokemonData {
 
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
+        PokemonSpecies IDnumber = pokeApi.getPokemonSpecies(id);
 
-        System.out.println(pokemon);
+        //System.out.println(pokemon);
         System.out.println();
         System.out.println("Pokemon ID: " + pokemon.getId());
         System.out.println("Pokemon Name: " + pokemon.getName());
         System.out.println("Height: " + (pokemon.getHeight()) * 0.1 + "m");
         System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + "kg");
-        System.out.println(pokemon.getTypes().get(1));
-
+        System.out.println();
+        System.out.println(IDnumber.getHabitat().getName());
 
 
 
