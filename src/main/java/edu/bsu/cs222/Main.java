@@ -25,6 +25,7 @@ public class Main{
         System.out.println(PokemonSelection.PokemonWeight(id));
         System.out.println(PokemonSelection.PokemonBaseExperience(id));
         System.out.println(PokemonSelection.Types(id));
+        console.close();
     }
 
 }
