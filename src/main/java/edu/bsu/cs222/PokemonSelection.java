@@ -12,7 +12,8 @@ public class PokemonSelection {
 
     public static NamedApiResource NamedApiResources(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        NamedApiResource namedApiResource = new NamedApiResource(pokeApi.getPokemon(id).getName(), pokeApi.getTypeList(pokeApi.getPokemon(id).getId(), id).getNext(), pokeApi.getPokemon(id).getId());
+        String typeName = String.valueOf(pokeApi.getPokemon(id).getTypes());
+        NamedApiResource namedApiResource = new NamedApiResource(typeName, pokeApi.getPokemon(id).getName(), pokeApi.getPokemon(id).getId());
         return namedApiResource;
     }
 
@@ -55,9 +56,12 @@ public class PokemonSelection {
     }
 
     //Methods using the "Type" class
-    public static List<PokemonType> Types(int id) {
+    public static String Types(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        List<PokemonType> pokemonType = pokeApi.getPokemon(id).getTypes();
-        return pokemonType;
+        List<PokemonType> pokemonTypes = pokeApi.getPokemon(id).getTypes();
+        for(int type = 0; type<pokemonTypes.size(); type++) {
+            return pokemonTypes.get(type).getType().getName();
+        }
+        return null;
     }
 }
