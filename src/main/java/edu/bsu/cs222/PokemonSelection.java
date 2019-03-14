@@ -64,4 +64,12 @@ public class PokemonSelection {
         }
         return null;
     }
+    public static String Abilities(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
+        for (int abilities = 0; abilities<pokemonAbilities.size(); abilities++) {
+            return pokemonAbilities.get(abilities).getAbility().getName();
+        }
+        return null;
+    }
 }
