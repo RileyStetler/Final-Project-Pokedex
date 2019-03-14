@@ -32,13 +32,13 @@ public class PokemonSelection {
     public static String PokemonHeight(int id) {
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
-        return (pokemon.getHeight() + " m");
+        return (pokemon.getHeight()*0.1 + " m");
     }
 
     public static String PokemonWeight(int id) {
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
-        return (pokemon.getWeight() + " kg");
+        return (pokemon.getWeight()*0.1 + " kg");
     }
 
     public static String PokemonBaseExperience(int id) {

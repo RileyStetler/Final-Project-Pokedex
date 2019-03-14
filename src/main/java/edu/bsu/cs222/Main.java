@@ -10,32 +10,21 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Scanner;
 
-public class Main extends Application {
-
+public class Main{
     public static void main(String[] args) {
-        launch(args);
+        Scanner console = new Scanner((System.in));
+        System.out.println("Enter a pokemon id to search: ");
+        int id = console.nextInt();
+
+        System.out.println(PokemonSelection.PokemonId(id));
+        System.out.println(PokemonSelection.PokemonName(id));
+        System.out.println(PokemonSelection.PokemonGeneration(id));
+        System.out.println(PokemonSelection.PokemonHeight(id));
+        System.out.println(PokemonSelection.PokemonWeight(id));
+        System.out.println(PokemonSelection.PokemonBaseExperience(id));
+        System.out.println(PokemonSelection.Types(id));
     }
 
-    @Override
-    public void start(Stage primaryStage) {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    private Button button = new Button("Button");
-
-    private Pane createRoot() {
-        VBox root = new VBox();
-        root.getChildren().addAll( //
-                button); //
-        return root;
-    }
 }
