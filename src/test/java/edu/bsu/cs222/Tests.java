@@ -68,10 +68,18 @@ public class Tests {
 
     //Tests that use the "Type" class
     @Test
-    public void testReturnPokemonType() {
+    public void testReturnPokemonOneType() {
         final PokemonSelection pokemonSelection = new PokemonSelection();
-        final List<PokemonType> input = pokemonSelection.Types(004);
-        final String output = "water";
+        final String input = pokemonSelection.Types(004);
+        final String output = "fire";
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testReturnPokemonTwoTypes() {
+        final PokemonSelection pokemonSelection = new PokemonSelection();
+        final String input = pokemonSelection.Types(001);
+        final String output = ("fire, water");
         Assert.assertEquals(input, output);
     }
 }
