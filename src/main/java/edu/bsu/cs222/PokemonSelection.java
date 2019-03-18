@@ -60,22 +60,29 @@ public class PokemonSelection {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonType> pokemonTypes = pokeApi.getPokemon(id).getTypes();
         if(pokemonTypes.size() <= 1) {
-            for (int types = 0; types<pokemonTypes.size(); types++) {
-                return pokemonTypes.get(types).getType().getName();
+            for (PokemonType pokemonType : pokemonTypes) {
+                return pokemonType.getType().getName();
             }
-        } else if (pokemonTypes.size() > 1){
+        } else {
             String pokemonType1 = pokeApi.getPokemon(id).getTypes().get(0).getType().getName();
             String pokemonType2 = pokeApi.getPokemon(id).getTypes().get(1).getType().getName();
             return pokemonType1 + ", " + pokemonType2;
         }
         return null;
-
     }
+
+    //Currently only prints 2 abilities, plan on splitting up into 2 methods
     public static String Abilities(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
-        for (int abilities = 0; abilities<pokemonAbilities.size(); abilities++) {
-            return pokemonAbilities.get(abilities).getAbility().getName();
+        if (pokemonAbilities.size() <= 1) {
+            for (PokemonAbility pokemonAbility : pokemonAbilities) {
+                return pokemonAbility.getAbility().getName();
+            }
+        } else {
+            String pokemonAbility1 = pokeApi.getPokemon(id).getAbilities().get(0).getAbility().getName();
+            String pokemonAbility2 = pokeApi.getPokemon(id).getAbilities().get(1).getAbility().getName();
+            return pokemonAbility1 + ", " + pokemonAbility2;
         }
         return null;
     }

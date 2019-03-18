@@ -85,12 +85,21 @@ public class Tests {
     }
 
     @Test
-    public void testPokemonAbilities() {
+    public void testPokemonAbilitiesOne() {
         final PokemonSelection pokemonSelection = new PokemonSelection();
         final String input = pokemonSelection.Abilities(001);
         final String output = ("chlorophyll");
         Assert.assertEquals(input, output);
     }
+
+        @Test
+    public void testPokemonAbilitiesTwo() {
+        final PokemonSelection pokemonSelection = new PokemonSelection();
+        final String input = pokemonSelection.Abilities(001);
+        final String output = ("chlorophyll, overgrow");
+        Assert.assertEquals(input, output);
+    }
+
     //Test Failing
     @Test
     public void testPokemonAbility(){
