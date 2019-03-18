@@ -18,10 +18,19 @@ public class PokemonSelection {
     }
 
     //Methods using the "Pokemon" class
-    public static int PokemonId(int id) {
+    public static String PokemonId(int id) {
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
-        return pokemon.getId();
+        String one = "#00";
+        String two = "#0";
+        if (id < 10) {
+            return one + pokemon.getId();
+        } else if (id >= 10 && id < 100) {
+            return two + pokemon.getId();
+        } else if (id >= 100) {
+            return "#" + pokemon.getId();
+        }
+        return null;
     }
 
     public static String PokemonName(int id) {
@@ -75,16 +84,22 @@ public class PokemonSelection {
     public static String Abilities(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
-        if (pokemonAbilities.size() <= 1) {
-            for (PokemonAbility pokemonAbility : pokemonAbilities) {
+        for (PokemonAbility pokemonAbility : pokemonAbilities) {
+            if (pokemonAbilities.size() <= 2 && !pokemonAbility.isHidden()) {
                 return pokemonAbility.getAbility().getName();
+            } else if (pokemonAbilities.size() > 2 && !pokemonAbility.isHidden()){
+                String pokemonAbility1 = pokeApi.getPokemon(id).getAbilities().get(1).getAbility().getName();
+                String pokemonAbility2 = pokeApi.getPokemon(id).getAbilities().get(2).getAbility().getName();
+                return pokemonAbility1 + ", " + pokemonAbility2;
             }
-        } else {
-            String pokemonAbility1 = pokeApi.getPokemon(id).getAbilities().get(0).getAbility().getName();
-            String pokemonAbility2 = pokeApi.getPokemon(id).getAbilities().get(1).getAbility().getName();
-            return pokemonAbility1 + ", " + pokemonAbility2;
         }
         return null;
+    }
+/*
+    public static String HiddenAbilities(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
+        if (pokemonAbilities.size() <)
     }
 
     public static List<PokemonAbility> Ability(int id) {
@@ -92,4 +107,5 @@ public class PokemonSelection {
         List<PokemonAbility> pokemonAbility = pokeApi.getPokemon(id).getAbilities();
         return pokemonAbility;
     }
+    */
 }

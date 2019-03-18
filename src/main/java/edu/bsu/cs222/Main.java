@@ -26,7 +26,7 @@ public class Main{
         System.out.println(PokemonSelection.PokemonBaseExperience(id));
         System.out.println(PokemonSelection.Types(id));
         System.out.println(PokemonSelection.Abilities(id));
-        System.out.println(PokemonSelection.Ability(id));
+        //System.out.println(PokemonSelection.Ability(id));
         console.close();
     }
 
