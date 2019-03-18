@@ -2,6 +2,7 @@ package edu.bsu.cs222;
 
 import edu.bsu.cs222.PokemonData;
 import me.sargunvohra.lib.pokekotlin.model.NamedApiResource;
+import me.sargunvohra.lib.pokekotlin.model.PokemonAbility;
 import me.sargunvohra.lib.pokekotlin.model.PokemonType;
 import me.sargunvohra.lib.pokekotlin.model.TypePokemon;
 import org.junit.Assert;
@@ -80,6 +81,22 @@ public class Tests {
         final PokemonSelection pokemonSelection = new PokemonSelection();
         final String input = pokemonSelection.Types(001);
         final String output = ("poison, grass");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonAbilities() {
+        final PokemonSelection pokemonSelection = new PokemonSelection();
+        final String input = pokemonSelection.Abilities(001);
+        final String output = ("chlorophyll");
+        Assert.assertEquals(input, output);
+    }
+    //Test Failing
+    @Test
+    public void testPokemonAbility(){
+        final PokemonSelection pokemonSelection = new PokemonSelection();
+        final List<PokemonAbility> input = pokemonSelection.Ability(001);
+        final boolean output = (true);
         Assert.assertEquals(input, output);
     }
 }

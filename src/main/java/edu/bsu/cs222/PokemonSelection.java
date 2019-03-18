@@ -79,4 +79,10 @@ public class PokemonSelection {
         }
         return null;
     }
+
+    public static List<PokemonAbility> Ability(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        List<PokemonAbility> pokemonAbility = pokeApi.getPokemon(id).getAbilities();
+        return pokemonAbility;
+    }
 }
