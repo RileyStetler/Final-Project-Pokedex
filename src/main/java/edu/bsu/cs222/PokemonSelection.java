@@ -59,10 +59,17 @@ public class PokemonSelection {
     public static String Types(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonType> pokemonTypes = pokeApi.getPokemon(id).getTypes();
-        for(int type = 0; type<pokemonTypes.size(); type++) {
-            return pokemonTypes.get(type).getType().getName();
+        if(pokemonTypes.size() <= 1) {
+            for (int types = 0; types<pokemonTypes.size(); types++) {
+                return pokemonTypes.get(types).getType().getName();
+            }
+        } else if (pokemonTypes.size() > 1){
+            String pokemonType1 = pokeApi.getPokemon(id).getTypes().get(0).getType().getName();
+            String pokemonType2 = pokeApi.getPokemon(id).getTypes().get(1).getType().getName();
+            return pokemonType1 + ", " + pokemonType2;
         }
         return null;
+
     }
     public static String Abilities(int id) {
         PokeApi pokeApi = new PokeApiClient();

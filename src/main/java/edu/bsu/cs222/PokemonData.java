@@ -8,16 +8,17 @@ import java.util.Scanner;
 
 public class PokemonData {
     public static void Pokemon(int id) {
-        //Scanner console = new Scanner(System.in);
+        Scanner console = new Scanner(System.in);
 
-        //System.out.println("Enter a Pokemon ID: ");
-        //int id = console.nextInt();
+        System.out.println("Enter a Pokemon ID: ");
+        id = console.nextInt();
 
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
         PokemonSpecies IDnumber = pokeApi.getPokemonSpecies(id);
         //Generation type = pokeApi.getGeneration(id);
-        Type pokemonType = pokeApi.getType(id);
+        //Type pokemonType = pokeApi.getType(id);
+        String pokemonType = pokeApi.getPokemon(id).getTypes().get(0).getType().getName();
         Ability Abilities = pokeApi.getAbility(id);
 
         //System.out.println(pokemon);
@@ -27,7 +28,7 @@ public class PokemonData {
         System.out.println("Height: " + (pokemon.getHeight()) * 0.1 + " m"); //
         System.out.println("Weight: " + (pokemon.getWeight()) * 0.1 + " kg"); //
         System.out.println("Base Experience: " + pokemon.getBaseExperience() + " XP"); //
-        System.out.println("Type: " + pokemonType.getName());
+        System.out.println("Type: " + pokemonType);
         System.out.println("Generation: " + IDnumber.getGeneration().getName()); //
         System.out.println("Ability: " + Abilities.getName());
 

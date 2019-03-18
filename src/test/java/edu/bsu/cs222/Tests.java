@@ -79,7 +79,7 @@ public class Tests {
     public void testReturnPokemonTwoTypes() {
         final PokemonSelection pokemonSelection = new PokemonSelection();
         final String input = pokemonSelection.Types(001);
-        final String output = ("fire, water");
+        final String output = ("poison, grass");
         Assert.assertEquals(input, output);
     }
 }
