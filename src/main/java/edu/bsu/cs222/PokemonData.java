@@ -4,6 +4,7 @@ import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
 import me.sargunvohra.lib.pokekotlin.model.*;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PokemonData {
@@ -31,6 +32,8 @@ public class PokemonData {
         System.out.println("Generation: " + IDnumber.getGeneration().getName()); //
         System.out.println("Ability: " + Abilities.getName());
 
+        System.out.println("Base States: " + pokemon.getStats().get(1));
+
         System.out.println("Evolves from: " + IDnumber.getEvolvesFromSpecies().getName());
 
 
@@ -55,6 +58,6 @@ public class PokemonData {
     }
 
     public static void main(String[] args) {
-        PokemonData.Pokemon(Integer.parseInt(String.valueOf(args)));
+        PokemonData.Pokemon(Integer.parseInt(Arrays.toString(args)));
     }
 }
