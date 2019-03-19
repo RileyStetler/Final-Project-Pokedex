@@ -80,7 +80,7 @@ public class PokemonSelection {
         return null;
     }
 
-    //Currently only prints 2 abilities, plan on splitting up into 2 methods
+    // Prints up to two of the normal abilities
     public static String Abilities(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
@@ -95,13 +95,21 @@ public class PokemonSelection {
         }
         return null;
     }
-/*
-    public static String HiddenAbilities(int id) {
+
+    // Prints the hidden ability
+    public static String HiddenAbility(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
-        if (pokemonAbilities.size() <)
+        for (PokemonAbility pokemonAbility : pokemonAbilities) {
+            if (pokemonAbility.isHidden()) {
+                return pokemonAbility.getAbility().getName() + " (Hidden)";
+            }
+        }
+        return null;
     }
 
+/*
+    // I'm still unsure what this class is for, and why the test is checking to see if it is true
     public static List<PokemonAbility> Ability(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonAbility> pokemonAbility = pokeApi.getPokemon(id).getAbilities();

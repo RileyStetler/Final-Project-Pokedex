@@ -1,14 +1,7 @@
 package edu.bsu.cs222;
 
-import edu.bsu.cs222.PokemonData;
-import me.sargunvohra.lib.pokekotlin.model.NamedApiResource;
-import me.sargunvohra.lib.pokekotlin.model.PokemonAbility;
-import me.sargunvohra.lib.pokekotlin.model.PokemonType;
-import me.sargunvohra.lib.pokekotlin.model.TypePokemon;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.List;
 
 public class Tests {
 
@@ -97,10 +90,17 @@ public class Tests {
         Assert.assertEquals(input, output);
     }
 
-        @Test
+    @Test
     public void testPokemonAbilitiesTwo() {
         final String input = PokemonSelection.Abilities(16);
         final String output = ("tangled-feet, keen-eye");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonHiddenAbility() {
+        final String input = PokemonSelection.HiddenAbility(4);
+        final String output = ("solar-power (Hidden)");
         Assert.assertEquals(input, output);
     }
 
