@@ -42,14 +42,14 @@ public class Tests {
     @Test
     public void testReturnPokemonHeight() {
         final String input = PokemonSelection.PokemonHeight(4);
-        final String output = "6 m";
+        final String output = "0.6 m";
         Assert.assertEquals(input, output);
     }
 
     @Test
     public void testReturnPokemonWeight() {
         final String input = PokemonSelection.PokemonWeight(4);
-        final String output = "85 kg";
+        final String output = "8.5 kg";
         Assert.assertEquals(input, output);
     }
 

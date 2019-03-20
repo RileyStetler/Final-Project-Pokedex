@@ -4,7 +4,11 @@ import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
 import me.sargunvohra.lib.pokekotlin.model.*;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.List;
+
+import static java.lang.Math.round;
 
 //This class pulls all of the information that we need from PokeApi.co and separates them into different methods.
 //This is so that we can print more specifically what we want.
@@ -40,15 +44,17 @@ public class PokemonSelection {
     }
 
     public static String PokemonHeight(int id) {
+        DecimalFormat df = new DecimalFormat("#.##");
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
-        return (pokemon.getHeight()*0.1 + " m");
+        return (df.format(pokemon.getHeight()*0.1) + " m");
     }
 
     public static String PokemonWeight(int id) {
+        DecimalFormat df = new DecimalFormat("#.##");
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
-        return (pokemon.getWeight()*0.1 + " kg");
+        return (df.format(pokemon.getWeight()*0.1) + " kg");
     }
 
     public static String PokemonBaseExperience(int id) {
