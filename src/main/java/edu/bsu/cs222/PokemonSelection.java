@@ -185,11 +185,7 @@ public class PokemonSelection {
         return pokemon + ": " + statValue;
     }
 
-    public static String PokemonLocation(int id){
-        PokeApi pokeApi = new PokeApiClient();
-        String pokemon = pokeApi.getPokemon(id).getName();
-        return pokemon;
-    }
+
 
 }
 
