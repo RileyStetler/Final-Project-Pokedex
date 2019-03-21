@@ -184,7 +184,7 @@ public class PokemonSelection {
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(5).getBaseStat());
         return pokemon + ": " + statValue;
     }
-    */
+    *///
 }
 
 
