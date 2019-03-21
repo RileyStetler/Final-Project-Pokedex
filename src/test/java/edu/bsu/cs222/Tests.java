@@ -105,20 +105,43 @@ public class Tests {
     }
 
     @Test
-    public void testPokemonLocation() {
-        final String input = PokemonSelection.PokemonLocation(4);
-        final String output = ("Forest");
+    public void testPokemonBaseSpeedStat(){
+        final String input = PokemonSelection.PokemonBaseSpeedStat(1);
+        final String output = ("speed: " + 45);
         Assert.assertEquals(input, output);
     }
 
-    //Test Failing
-    /*
     @Test
-    public void testPokemonAbility(){
-        final PokemonSelection pokemonSelection = new PokemonSelection();
-        final List<PokemonAbility> input = pokemonSelection.Ability(001);
-        final boolean output = (true);
+    public void testPokemonBaseAttackStat(){
+        final String input =PokemonSelection.PokemonBaseAttackStat(1);
+        final String output = ("attack: " + 49);
         Assert.assertEquals(input, output);
     }
-    */
+
+    @Test
+    public void testPokemonBaseDefenseStat(){
+        final String input =PokemonSelection.PokemonBaseDefenseStat(1);
+        final String output = ("defense: " + 49);
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonBaseSpecialAttackStat(){
+        final String input =PokemonSelection.PokemonBaseSpecialAttackStat(1);
+        final String output = ("special-attack: " + 65);
+        Assert.assertEquals(input, output);
+    }
+    @Test
+    public void testPokemonBaseSpecialDefenseStat(){
+        final String input =PokemonSelection.PokemonBaseSpecialDefenseStat(1);
+        final String output = ("special-defense: " + 65);
+        Assert.assertEquals(input, output);
+    }
+    @Test
+    public void testPokemonBaseHealthPointsStat(){
+        final String input =PokemonSelection.PokemonBaseHealthPointsStat(1);
+        final String output = ("hp: " + 45);
+        Assert.assertEquals(input, output);
+    }
+
 }
