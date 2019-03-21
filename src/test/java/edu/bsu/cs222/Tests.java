@@ -104,6 +104,13 @@ public class Tests {
         Assert.assertEquals(input, output);
     }
 
+    @Test
+    public void testPokemonLocation() {
+        final String input = PokemonSelection.PokemonLocation(4);
+        final String output = ("Forests");
+        Assert.assertEquals(input, output);
+    }
+
     //Test Failing
     /*
     @Test

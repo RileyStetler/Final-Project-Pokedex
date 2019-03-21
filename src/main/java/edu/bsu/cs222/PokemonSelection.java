@@ -114,6 +114,12 @@ public class PokemonSelection {
         return null;
     }
 
+    public static String PokemonLocation(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        PokemonSpecies pokemonSpecies = pokeApi.getPokemonSpecies(id);
+        return pokemonSpecies.getHabitat().getName();
+    }
+
 /*
     // I'm still unsure what this class is for, and why the test is checking to see if it is true
     public static List<PokemonAbility> Ability(int id) {
