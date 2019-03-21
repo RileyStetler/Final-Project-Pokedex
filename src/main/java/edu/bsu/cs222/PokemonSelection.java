@@ -114,17 +114,6 @@ public class PokemonSelection {
         return null;
     }
 
-    // Prints the states of the pokemon
-    public static int BaseStats(int id) {
-        PokeApi pokeApi = new PokeApiClient();
-        List<PokemonStat> pokemonStats = pokeApi.getPokemon(id).getStats();
-            for (PokemonStat pokemonStats1 : pokemonStats)
-            {
-                return pokemonStats1.getBaseStat() ;
-            }
-        return id;
-    }
-
 /*
     // I'm still unsure what this class is for, and why the test is checking to see if it is true
     public static List<PokemonAbility> Ability(int id) {
