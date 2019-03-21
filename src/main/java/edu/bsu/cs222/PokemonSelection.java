@@ -192,9 +192,4 @@ public class PokemonSelection {
 
 }
 
-//Speed
-//Special Defense
-//Special Attack
-//Defense
-//Attack
-//HP
+
