@@ -125,15 +125,19 @@ public class PokemonSelection {
         return id;
     }
 
-/*
-    // I'm still unsure what this class is for, and why the test is checking to see if it is true
-    public static List<PokemonAbility> Ability(int id) {
+    public static String PokemonBaseStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        List<PokemonAbility> pokemonAbility = pokeApi.getPokemon(id).getAbilities();
-        return pokemonAbility;
-    }
-    */
+        List<PokemonStat> pokemon = pokeApi.getPokemon(id).getStats();
+        for(int i = 0; i < pokemon.size(); i++){
+            String pokemonName = pokeApi.getPokemon(id).getStats().get(i).getStat().getName();
+            String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(i).getBaseStat());
+            System.out.println(pokemonName + ": " + statValue);
 
+        }
+        String done = "";
+        return done;
+    }
+    /*
     public static String PokemonBaseSpeedStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(0).getStat().getName();
@@ -143,18 +147,9 @@ public class PokemonSelection {
 
 //A for-loop that will print the base stats automatically
 //CURRENTLY BROKEN
-/*
-    public static String PokemonBaseStat(int id) {
-        PokeApi pokeApi = new PokeApiClient();
-        List<PokemonStat> pokemon = pokeApi.getPokemon(id).getStats();
-        for(int i = 0; i < pokemon.size(); i++){
-            String pokemonName = pokeApi.getPokemon(id).getStats().get(i).getStat().getName();
-            String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(i).getBaseStat());
-            return pokemonName + ": " + statValue;
-        }
-        return null;
-    }
-*/
+
+
+
     public static String PokemonBaseSpecialDefenseStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(1).getStat().getName();
@@ -189,7 +184,7 @@ public class PokemonSelection {
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(5).getBaseStat());
         return pokemon + ": " + statValue;
     }
-
+    */
 }
 
 

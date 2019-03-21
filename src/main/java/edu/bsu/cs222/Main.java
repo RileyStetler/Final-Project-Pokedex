@@ -17,15 +17,7 @@ public class Main{
         System.out.println(PokemonSelection.Types(id));
         System.out.println(PokemonSelection.Abilities(id));
         System.out.println(PokemonSelection.HiddenAbility(id));
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(PokemonSelection.PokemonBaseSpeedStat(id));
-        System.out.println(PokemonSelection.PokemonBaseSpecialDefenseStat(id));
-        System.out.println(PokemonSelection.PokemonBaseSpecialAttackStat(id));
-        System.out.println(PokemonSelection.PokemonBaseDefenseStat(id));
-        System.out.println(PokemonSelection.PokemonBaseAttackStat(id));
-        System.out.println(PokemonSelection.PokemonBaseHealthPointsStat(id));
+        System.out.println(PokemonSelection.PokemonBaseStat(id));
 
 
         console.close();
