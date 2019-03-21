@@ -37,8 +37,7 @@ public class PokemonData {
 
         System.out.println("Evolves from: " + IDnumber.getEvolvesFromSpecies().getName());
 
-
-
+        System.out.println(pokemon.getStats().parallelStream());
 //yes
         //ID
         //Name
@@ -52,9 +51,6 @@ public class PokemonData {
         //gender
         //HP, defense, attack, special attack, special defense, speed, total of all stats
         //moves a pokemon can learn
-
-
-
 
     }
 
