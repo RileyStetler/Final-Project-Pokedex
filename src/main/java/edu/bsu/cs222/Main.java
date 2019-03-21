@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import me.sargunvohra.lib.pokekotlin.model.PokemonStat;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -26,6 +27,7 @@ public class Main{
         System.out.println(PokemonSelection.PokemonBaseExperience(id));
         System.out.println(PokemonSelection.Types(id));
         System.out.println(PokemonSelection.Abilities(id));
+        System.out.println(PokemonSelection.BaseStats(id));
         //System.out.println(PokemonSelection.Ability(id));
         console.close();
     }
