@@ -3,6 +3,7 @@ package edu.bsu.cs222;
 import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
 import me.sargunvohra.lib.pokekotlin.model.*;
+import me.sargunvohra.lib.pokekotlin.model.PokemonStat;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -111,6 +112,17 @@ public class PokemonSelection {
             }
         }
         return null;
+    }
+
+    // Prints the states of the pokemon
+    public static int BaseStats(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        List<PokemonStat> pokemonStats = pokeApi.getPokemon(id).getStats();
+            for (PokemonStat pokemonStats1 : pokemonStats)
+            {
+                return pokemonStats1.getBaseStat() ;
+            }
+        return id;
     }
 
 /*

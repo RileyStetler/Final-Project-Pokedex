@@ -103,15 +103,4 @@ public class Tests {
         final String output = ("solar-power (Hidden)");
         Assert.assertEquals(input, output);
     }
-
-    //Test Failing
-    /*
-    @Test
-    public void testPokemonAbility(){
-        final PokemonSelection pokemonSelection = new PokemonSelection();
-        final List<PokemonAbility> input = pokemonSelection.Ability(001);
-        final boolean output = (true);
-        Assert.assertEquals(input, output);
-    }
-    */
 }
