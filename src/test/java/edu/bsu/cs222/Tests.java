@@ -146,8 +146,13 @@ public class Tests {
     @Test
     public void testPokemonLocation() {
         final String input = PokemonSelection.PokemonLocation(4);
-        final String output = ("Forests");
+        final String output = ("mountain");
         Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonMove(){
+        final String input = PokemonMoveData.PokemonMove(1);
     }
 
 }
