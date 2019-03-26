@@ -175,16 +175,37 @@ public class Tests {
     }
 
     @Test
-    public void testPokemonTwoEvolutions() {
+    public void testPokemonTwoEvolutions1() {
         final String input = PokemonSelection.AllPokemonEvolutions(19);
-        final String output = ("rattata, raticate");
+        final String output = ("raticate");
         Assert.assertEquals(input, output);
     }
 
     @Test
-    public void testPokemonThreeEvolutions() {
+    public void testPokemonTwoEvolutions2() {
+        final String input = PokemonSelection.AllPokemonEvolutions(20);
+        final String output = ("rattata");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonThreeEvolutions1() {
         final String input = PokemonSelection.AllPokemonEvolutions(4);
-        final String output = ("charmander, charmeleon, charizard");
+        final String output = ("charmeleon, charizard");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonThreeEvolutions2() {
+        final String input = PokemonSelection.AllPokemonEvolutions(5);
+        final String output = ("charmander, charizard");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonThreeEvolutions3() {
+        final String input = PokemonSelection.AllPokemonEvolutions(6);
+        final String output = ("charmander, charmeleon");
         Assert.assertEquals(input, output);
     }
 }

@@ -209,12 +209,22 @@ public class PokemonSelection {
             if (evolutionChain.get(0).getEvolvesTo().isEmpty()) {
                 String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
                 String evolution2 = evolutionChain.get(0).getSpecies().getName();
-                return evolution1 + ", " + evolution2;
+                if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
+                    return evolution2;
+                } else {
+                    return evolution1;
+                }
             } else {
                 String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
                 String evolution2 = evolutionChain.get(0).getSpecies().getName();
                 String evolution3 = evolutionChain.get(0).getEvolvesTo().get(0).getSpecies().getName();
-                return evolution1 + ", " + evolution2 + ", " + evolution3;
+                if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
+                    return evolution2 + ", " + evolution3;
+                } else if (pokeApi.getPokemon(id).getName().equals(evolution2)) {
+                    return evolution1 + ", " + evolution3;
+                } else {
+                    return evolution1 + ", " + evolution2;
+                }
             }
         }
     }
