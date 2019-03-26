@@ -131,18 +131,21 @@ public class Tests {
         final String output = ("special-attack: " + 65);
         Assert.assertEquals(input, output);
     }
+
     @Test
     public void testPokemonBaseSpecialDefenseStat(){
         final String input =PokemonSelection.PokemonBaseSpecialDefenseStat(1);
         final String output = ("special-defense: " + 65);
         Assert.assertEquals(input, output);
     }
+
     @Test
     public void testPokemonBaseHealthPointsStat(){
         final String input =PokemonSelection.PokemonBaseHealthPointsStat(1);
         final String output = ("hp: " + 45);
         Assert.assertEquals(input, output);
     }
+
     @Test
     public void testPokemonLocation() {
         final String input = PokemonSelection.PokemonLocation(4);
@@ -150,4 +153,38 @@ public class Tests {
         Assert.assertEquals(input, output);
     }
 
+    @Test
+    public void testPokemonNoPreviousEvolution() {
+        final String input = PokemonSelection.PokemonEvolutions(4);
+        final String output = ("There are no earlier evolutions.");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonPreviousEvolution() {
+        final String input = PokemonSelection.PokemonEvolutions(5);
+        final String output = ("charmander");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonNoEvolutions() {
+        final String input = PokemonSelection.AllPokemonEvolutions(83);
+        final String output = ("There are no other evolutions.");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonTwoEvolutions() {
+        final String input = PokemonSelection.AllPokemonEvolutions(19);
+        final String output = ("rattata, raticate");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonThreeEvolutions() {
+        final String input = PokemonSelection.AllPokemonEvolutions(4);
+        final String output = ("charmander, charmeleon, charizard");
+        Assert.assertEquals(input, output);
+    }
 }
