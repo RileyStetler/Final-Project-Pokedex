@@ -6,7 +6,10 @@ import me.sargunvohra.lib.pokekotlin.model.*;
 import me.sargunvohra.lib.pokekotlin.model.PokemonStat;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 
 import static java.lang.Math.round;
 
@@ -114,18 +117,21 @@ public class PokemonSelection {
         return null;
     }
 
-    public static String PokemonBaseStat(int id) {
+    public static String PokemonLocation(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        List<PokemonStat> pokemon = pokeApi.getPokemon(id).getStats();
-        for(int i = 0; i < pokemon.size(); i++){
-            String pokemonName = pokeApi.getPokemon(id).getStats().get(i).getStat().getName();
-            String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(i).getBaseStat());
-            System.out.println(pokemonName + ": " + statValue);
-        }
-        String done = "";
-        return done;
+        PokemonSpecies pokemonSpecies = pokeApi.getPokemonSpecies(id);
+        return pokemonSpecies.getHabitat().getName();
     }
-    /*
+
+/*
+    // I'm still unsure what this class is for, and why the test is checking to see if it is true
+    public static List<PokemonAbility> Ability(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        List<PokemonAbility> pokemonAbility = pokeApi.getPokemon(id).getAbilities();
+        return pokemonAbility;
+    }
+    */
+
     public static String PokemonBaseSpeedStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(0).getStat().getName();
@@ -133,6 +139,20 @@ public class PokemonSelection {
         return pokemon + ": " + statValue;
     }
 
+//A for-loop that will print the base stats automatically
+//CURRENTLY BROKEN
+/*
+    public static String PokemonBaseStat(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        List<PokemonStat> pokemon = pokeApi.getPokemon(id).getStats();
+        for(int i = 0; i < pokemon.size(); i++){
+            String pokemonName = pokeApi.getPokemon(id).getStats().get(i).getStat().getName();
+            String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(i).getBaseStat());
+            return pokemonName + ": " + statValue;
+        }
+        return null;
+    }
+*/
     public static String PokemonBaseSpecialDefenseStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(1).getStat().getName();
@@ -167,7 +187,37 @@ public class PokemonSelection {
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(5).getBaseStat());
         return pokemon + ": " + statValue;
     }
-    *///
+
+    public static String PokemonEvolutions(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        //int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
+        NamedApiResource previousSpecies = pokeApi.getPokemonSpecies(id).getEvolvesFromSpecies();
+        if (previousSpecies == null) {
+            return "There are no earlier evolutions.";
+        } else {
+            return previousSpecies.getName();
+        }
+    }
+
+    public static String AllPokemonEvolutions(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
+        List<ChainLink> evolutionChain = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getEvolvesTo();
+        if (evolutionChain.isEmpty()) {
+            return "There are no other evolutions.";
+        } else {
+            if (evolutionChain.get(0).getEvolvesTo().isEmpty()) {
+                String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
+                String evolution2 = evolutionChain.get(0).getSpecies().getName();
+                return evolution1 + ", " + evolution2;
+            } else {
+                String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
+                String evolution2 = evolutionChain.get(0).getSpecies().getName();
+                String evolution3 = evolutionChain.get(0).getEvolvesTo().get(0).getSpecies().getName();
+                return evolution1 + ", " + evolution2 + ", " + evolution3;
+            }
+        }
+    }
 }
 
 
