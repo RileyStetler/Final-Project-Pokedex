@@ -103,7 +103,7 @@ public class Tests {
         final String output = ("solar-power (Hidden)");
         Assert.assertEquals(input, output);
     }
-
+/*
     @Test
     public void testPokemonBaseSpeedStat(){
         final String input = PokemonSelection.PokemonBaseSpeedStat(1);
@@ -149,10 +149,19 @@ public class Tests {
         final String output = ("mountain");
         Assert.assertEquals(input, output);
     }
-
+*/
     @Test
     public void testPokemonMove(){
         final String input = PokemonMoveData.PokemonMove(1);
+        final String output = ("pound");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testMoveLearnMethod(){
+        final String input = PokemonMoveData.PokemonMoveAccuracy(1);
+        final String output = ("level-up");
+        Assert.assertEquals(input, output);
     }
 
 }

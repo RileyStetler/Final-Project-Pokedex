@@ -18,6 +18,7 @@ public class Main{
         System.out.println(PokemonSelection.Abilities(id));
         System.out.println(PokemonSelection.HiddenAbility(id));
         System.out.println(PokemonSelection.PokemonBaseStat(id));
+        System.out.println(PokemonMoveData.PokemonMove(id));
 
 
         console.close();

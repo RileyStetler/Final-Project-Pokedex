@@ -8,16 +8,30 @@ import java.util.List;
 
 public class PokemonMoveData {
 
-    public static NamedApiResourceList NamedApiResourcesList(int id) {
+    public static NamedApiResource NamedApiResources(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        List <PokemonMove> pokemonMove = pokeApi.getPokemon(id).getMoves();
-        NamedApiResourceList namedApiResourceList = new NamedApiResourceList(pokemonMove, pokeApi.getPokemon(id).getName(), pokeApi.getPokemon(id).getId());
-        return namedApiResourceList;
+        String typeName = String.valueOf(pokeApi.getPokemon(id).getTypes());
+        NamedApiResource namedApiResource = new NamedApiResource(typeName, pokeApi.getPokemon(id).getName(), pokeApi.getPokemon(id).getId());
+        return namedApiResource;
     }
-
+/*
+    public static Move NamedApiResources(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        List<PokemonMove> typeName = pokeApi.getPokemon(id).getMoves();
+        NamedApiResource namedApiResource = new NamedApiResource(typeName, pokeApi.getM);
+        return namedApiResource;
+    }
+*/
     public static String PokemonMove(int id){
         PokeApi pokeApi = new PokeApiClient();
-        PokemonMove pokemonMove = pokeApi.getMoveList(id, 742);
-        return pokemonMove;
+        Move pokemonMove = pokeApi.getMove(id);
+        return pokemonMove.getName();
+    }
+
+    public static String PokemonMoveAccuracy(int id){
+        PokeApi pokeApi = new PokeApiClient();
+        Move pokemonMove = pokeApi.getMove(id);
+        //Accuracy pokemonAccuracy = pokeApii.getAccuracy(id);
+        return pokemonMove.getName();
     }
 }
