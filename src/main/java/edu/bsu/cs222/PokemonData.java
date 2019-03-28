@@ -38,20 +38,6 @@ public class PokemonData {
         System.out.println("Evolves from: " + IDnumber.getEvolvesFromSpecies().getName());
 
         System.out.println(pokemon.getStats().parallelStream());
-//yes
-        //ID
-        //Name
-        //Base stats
-        //Type
-        //Evolutions
-        //Generation
-        //Description
-        //Nickname
-        //abilities --> description of abilities
-        //gender
-        //HP, defense, attack, special attack, special defense, speed, total of all stats
-        //moves a pokemon can learn
-
     }
 
     public static void main(String[] args) {

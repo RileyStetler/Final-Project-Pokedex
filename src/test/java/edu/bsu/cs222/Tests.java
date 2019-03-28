@@ -161,7 +161,81 @@ public class Tests {
                 "swords-dance\n" +
                 "cut\n" +
                 "bind\n" +
-                "vine-whip\n");
+                "vine-whip\n"+
+                "headbutt\n" +
+                "tackle\n" +
+                "body-slam\n" +
+                "take-down\n" +
+                "double-edge\n"+
+                "growl\n" +
+                "strength\n" +
+                "mega-drain\n"+
+                "leech-seed\n" +
+                "growth\n" +
+                "razor-leaf\n" +
+                "solar-beam\n"+
+                "poison-powder\n"+
+                "sleep-powder\n"+
+                "petal-dance\n"+
+                "string-shot\n"+
+                "toxic\n"+
+                "rage\n"+
+                "mimic\n"+
+                "double-team\n"+
+                "defense-curl\n"+
+                "light-screen\n"+
+                "reflect\n" +
+                "bide\n" +
+                "sludge\n" +
+                "skull-bash\n" +
+                "amnesia\n" +
+                "flash\n" +
+                "rest\n" +
+                "substitute\n" +
+                "snore\n" +
+                "curse\n" +
+                "protect\n" +
+                "sludge-bomb\n" +
+                "mud-slap\n" +
+                "giga-drain\n" +
+                "endure\n" +
+                "charm\n" +
+                "swagger\n" +
+                "fury-cutter\n" +
+                "attract\n" +
+                "sleep-talk\n" +
+                "return\n" +
+                "frustration\n" +
+                "safeguard\n" +
+                "sweet-scent\n" +
+                "synthesis\n" +
+                "hidden-power\n" +
+                "sunny-day\n" +
+                "rock-smash\n" +
+                "facade\n" +
+                "nature-power\n" +
+                "ingrain\n" +
+                "knock-off\n" +
+                "secret-power\n" +
+                "grass-whistle\n" +
+                "bullet-seed\n" +
+                "magical-leaf\n" +
+                "natural-gift\n" +
+                "worry-seed\n" +
+                "seed-bomb\n" +
+                "energy-ball\n" +
+                "leaf-storm\n" +
+                "power-whip\n" +
+                "captivate\n" +
+                "grass-knot\n" +
+                "venoshock\n" +
+                "round\n" +
+                "echoed-voice\n" +
+                "grass-pledge\n" +
+                "work-up\n" +
+                "grassy-terrain\n" +
+                "confide\n"+
+                "");
         Assert.assertEquals(input, output);
     }
 /*

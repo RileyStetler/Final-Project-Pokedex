@@ -15,7 +15,9 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javax.swing.*;
+import javax.swing.plaf.MenuBarUI;
 import java.awt.*;
+
 
 
 public class PokeDexInterface extends Application {
@@ -31,18 +33,18 @@ public class PokeDexInterface extends Application {
         JTextField heightField = new JTextField(5);
 
         JTextField weightField = new JTextField(5);
-        JLabel bmiLabel = new JLabel("Type your height and weight.");
+        JLabel bmiLabel = new JLabel("Enter Pokemon's Name");
         JButton computeButton = new JButton("Compute");
 
         //layout
-        JPanel north = new JPanel(new GridLayout(2,2));
+        JPanel north = new JPanel(new GridLayout(10,10));
         north.add(new JLabel("Height: "));
         north.add(heightField);
         north.add(new JLabel("Weight: "));
         north.add(weightField);
 
         // overall frame
-        JFrame frame = new JFrame("BMI");
+        JFrame frame = new JFrame("Pokedex");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         frame.add(north, BorderLayout.NORTH);
@@ -51,5 +53,7 @@ public class PokeDexInterface extends Application {
         frame.pack();
         frame.setVisible(true);
 
+        JMenuBar menu = new JMenuBar();
+        menu.add(new JMenuBar());
     }
 }
