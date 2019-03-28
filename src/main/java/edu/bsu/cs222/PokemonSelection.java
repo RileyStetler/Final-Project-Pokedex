@@ -123,15 +123,6 @@ public class PokemonSelection {
         return pokemonSpecies.getHabitat().getName();
     }
 
-/*
-    // I'm still unsure what this class is for, and why the test is checking to see if it is true
-    public static List<PokemonAbility> Ability(int id) {
-        PokeApi pokeApi = new PokeApiClient();
-        List<PokemonAbility> pokemonAbility = pokeApi.getPokemon(id).getAbilities();
-        return pokemonAbility;
-    }
-    */
-
     public static String PokemonBaseSpeedStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(0).getStat().getName();
@@ -189,17 +180,6 @@ public class PokemonSelection {
     }
 
     public static String PokemonEvolutions(int id) {
-        PokeApi pokeApi = new PokeApiClient();
-        //int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
-        NamedApiResource previousSpecies = pokeApi.getPokemonSpecies(id).getEvolvesFromSpecies();
-        if (previousSpecies == null) {
-            return "There are no earlier evolutions.";
-        } else {
-            return previousSpecies.getName();
-        }
-    }
-
-    public static String AllPokemonEvolutions(int id) {
         PokeApi pokeApi = new PokeApiClient();
         int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
         List<ChainLink> evolutionChain = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getEvolvesTo();

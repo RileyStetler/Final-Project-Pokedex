@@ -22,16 +22,21 @@ public class PokemonMoveData {
         return namedApiResource;
     }
 */
+    // I changed this function because every move can actually found under Pokemon
     public static String PokemonMove(int id){
         PokeApi pokeApi = new PokeApiClient();
-        Move pokemonMove = pokeApi.getMove(id);
-        return pokemonMove.getName();
+        StringBuilder sb = new StringBuilder();
+        List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
+        for (int i=0; i<pokemonMoves.size(); i++) {
+            sb.append(pokemonMoves.get(i).getMove().getName()).append("\n");
+        }
+        return sb.toString();
     }
-
+/*
     public static String PokemonMoveAccuracy(int id){
         PokeApi pokeApi = new PokeApiClient();
         Move pokemonMove = pokeApi.getMove(id);
         //Accuracy pokemonAccuracy = pokeApii.getAccuracy(id);
-        return pokemonMove.getName();
-    }
+        return pokemonMove.get;
+    } */
 }
