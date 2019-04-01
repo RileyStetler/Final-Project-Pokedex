@@ -208,6 +208,20 @@ public class PokemonSelection {
             }
         }
     }
+
+    public static String PokemonEvolutionTrigger(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
+        ChainLink evolutionChain = pokeApi.getEvolutionChain(pokemonSpecies).getChain();
+        if (pokeApi.getPokemon(id).getName().equals(evolutionChain.getSpecies().getName())) {
+            return "There is no evolution trigger.";
+        } else if (pokeApi.getPokemon(id).getName().equals(evolutionChain.getEvolvesTo().get(0).getSpecies().getName())) {
+            return evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
+        } else if (pokeApi.getPokemon(id).getName().equals(evolutionChain.getEvolvesTo().get(0).getEvolvesTo().get(0).getSpecies().getName())) {
+            return evolutionChain.getEvolvesTo().get(0).getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
+        }
+        return null;
+    }
 }
 
 

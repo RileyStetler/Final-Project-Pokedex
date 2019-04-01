@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import me.sargunvohra.lib.pokekotlin.model.Pokemon;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -161,29 +162,29 @@ public class Tests {
                 "swords-dance\n" +
                 "cut\n" +
                 "bind\n" +
-                "vine-whip\n"+
+                "vine-whip\n" +
                 "headbutt\n" +
                 "tackle\n" +
                 "body-slam\n" +
                 "take-down\n" +
-                "double-edge\n"+
+                "double-edge\n" +
                 "growl\n" +
                 "strength\n" +
-                "mega-drain\n"+
+                "mega-drain\n" +
                 "leech-seed\n" +
                 "growth\n" +
                 "razor-leaf\n" +
-                "solar-beam\n"+
-                "poison-powder\n"+
-                "sleep-powder\n"+
-                "petal-dance\n"+
-                "string-shot\n"+
-                "toxic\n"+
-                "rage\n"+
-                "mimic\n"+
-                "double-team\n"+
-                "defense-curl\n"+
-                "light-screen\n"+
+                "solar-beam\n" +
+                "poison-powder\n" +
+                "sleep-powder\n" +
+                "petal-dance\n" +
+                "string-shot\n" +
+                "toxic\n" +
+                "rage\n" +
+                "mimic\n" +
+                "double-team\n" +
+                "defense-curl\n" +
+                "light-screen\n" +
                 "reflect\n" +
                 "bide\n" +
                 "sludge\n" +
@@ -234,7 +235,7 @@ public class Tests {
                 "grass-pledge\n" +
                 "work-up\n" +
                 "grassy-terrain\n" +
-                "confide\n"+
+                "confide\n" +
                 "");
         Assert.assertEquals(input, output);
     }
@@ -285,6 +286,27 @@ public class Tests {
     public void testPokemonThreeEvolutions3() {
         final String input = PokemonSelection.PokemonEvolutions(6);
         final String output = ("charmander, charmeleon");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonEvolutionTrigger1() {
+        final String input = PokemonSelection.PokemonEvolutionTrigger(4);
+        final String output = ("There is no evolution trigger.");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonEvolutionTrigger2() {
+        final String input = PokemonSelection.PokemonEvolutionTrigger(5);
+        final String output = ("level-up");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonEvolutionTrigger3() {
+        final String input = PokemonSelection.PokemonEvolutionTrigger(6);
+        final String output = ("level-up");
         Assert.assertEquals(input, output);
     }
 }
