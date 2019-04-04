@@ -30,4 +30,4 @@ javafx {
     version = '11.0.2'
 }
 
-mainClassName = 'edu.bsu.cs222.GUI'
+mainClassName = 'edu.bsu.cs222.Main'
