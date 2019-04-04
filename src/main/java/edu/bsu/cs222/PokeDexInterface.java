@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import me.sargunvohra.lib.pokekotlin.model.Pokemon;
+
 import javax.swing.*;
 import javax.swing.plaf.MenuBarUI;
 import java.awt.*;
@@ -30,18 +32,14 @@ public class PokeDexInterface extends Application {
     @Override
     public void start(Stage stage) {
 
-        JTextField heightField = new JTextField(5);
-
-        JTextField weightField = new JTextField(5);
-        JLabel bmiLabel = new JLabel("Enter Pokemon's Name");
-        JButton computeButton = new JButton("Compute");
+        JTextField heightField = new JTextField(30);
+        JLabel bmiLabel = new JLabel("Are you sure?");
+        JButton computeButton = new JButton("I Choose You!");
 
         //layout
-        JPanel north = new JPanel(new GridLayout(10,10));
-        north.add(new JLabel("Height: "));
+        JPanel north = new JPanel(new GridLayout(30,30));
+        north.add(new JLabel("Choose Your Pokemon"));
         north.add(heightField);
-        north.add(new JLabel("Weight: "));
-        north.add(weightField);
 
         // overall frame
         JFrame frame = new JFrame("Pokedex");
@@ -55,5 +53,8 @@ public class PokeDexInterface extends Application {
 
         JMenuBar menu = new JMenuBar();
         menu.add(new JMenuBar());
+
+
+
     }
 }
