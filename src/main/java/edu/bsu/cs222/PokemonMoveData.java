@@ -68,4 +68,20 @@ public class PokemonMoveData {
         }
         return sb.toString();
     }
+
+    //Only returns move learn methods that are included in the first generation
+    public static String PokemonMoveLearnMethod(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        StringBuilder sb = new StringBuilder();
+        List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
+        for (PokemonMove pokemonMove : pokemonMoves) {
+            List<PokemonMoveVersion> pokemonMoveVersions = pokemonMove.getVersionGroupDetails();
+            for (PokemonMoveVersion pokemonMoveVersion : pokemonMoveVersions) {
+                if (pokemonMoveVersion.getVersionGroup().getName().equals("yellow") || pokemonMoveVersion.getVersionGroup().getName().equals("red-blue")) {
+                    sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                }
+            }
+        }
+        return sb.toString();
+    }
 }

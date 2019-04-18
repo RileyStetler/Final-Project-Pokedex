@@ -117,6 +117,7 @@ public class PokemonSelection {
         return null;
     }
 
+    // Needs updated in order to avoid error if there is no location
     public static String PokemonLocation(int id) {
         PokeApi pokeApi = new PokeApiClient();
         PokemonSpecies pokemonSpecies = pokeApi.getPokemonSpecies(id);
