@@ -44,6 +44,7 @@ public class GUI extends PokemonSelection{
         constraints.weightx = 1.0;
         constraints.anchor = GridBagConstraints.NORTH;
 
+
         JButton b1 = new JButton();
         JButton b2 = new JButton();
         for (int i = 0; i < 130; i++) {
