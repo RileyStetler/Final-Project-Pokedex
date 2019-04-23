@@ -19,12 +19,11 @@ public class PokemonSelection {
         String two = "#0";
         if (id < 10) {
             return one + pokemon.getId();
-        } else if (id >= 10 && id < 100) {
+        } else if (id < 100) {
             return two + pokemon.getId();
-        } else if (id >= 100) {
+        } else {
             return "#" + pokemon.getId();
         }
-        return null;
     }
 
     public static String PokemonName(int id) {

@@ -193,6 +193,70 @@ public class MoveTests {
                 "15\n" +
                 "15\n" +
                 "10\n" +
+                "20\n" +
+                "25\n" +
+                "10\n" +
+                "35\n" +
+                "15\n" +
+                "10\n" +
+                "40\n" +
+                "10\n" +
+                "20\n" +
+                "10\n" +
+                "15\n" +
+                "40\n" +
+                "30\n" +
+                "20\n" +
+                "10\n" +
+                "20\n" +
+                "10\n" +
+                "20\n" +
+                "20\n" +
+                "10\n" +
+                "10\n" +
+                "15\n" +
+                "10\n" +
+                "10\n" +
+                "10\n" +
+                "10\n" +
+                "10\n" +
+                "10\n" +
+                "20\n" +
+                "15\n" +
+                "20\n" +
+                "15\n" +
+                "10\n" +
+                "20\n" +
+                "20\n" +
+                "25\n" +
+                "20\n" +
+                "5\n"  +
+                "15\n" +
+                "5\n"  +
+                "15\n" +
+                "20\n" +
+                "20\n" +
+                "20\n" +
+                "20\n" +
+                "20\n" +
+                "15\n" +
+                "30\n" +
+                "20\n" +
+                "15\n" +
+                "10\n" +
+                "15\n" +
+                "10\n" +
+                "5\n"  +
+                "10\n" +
+                "20\n" +
+                "20\n" +
+                "10\n" +
+                "15\n" +
+                "15\n" +
+                "10\n" +
+                "30\n" +
+                "10\n" +
+                "20\n" +
                 "");
         Assert.assertEquals(input, output);
     }
@@ -200,23 +264,258 @@ public class MoveTests {
     @Test
     public void testPokemonMovePower() {
         final String input = PokemonMoveData.PokemonMovePower(1);
-        final String output = (" ");
+        final String output = ("80\n" +
+                "null\n" +
+                "50\n" +
+                "15\n" +
+                "45\n" +
+                "70\n" +
+                "40\n" +
+                "85\n" +
+                "90\n" +
+                "120\n" +
+                "null\n" +
+                "80\n" +
+                "40\n" +
+                "null\n" +
+                "null\n" +
+                "55\n" +
+                "120\n" +
+                "null\n" +
+                "null\n" +
+                "120\n" +
+                "null\n" +
+                "null\n" +
+                "20\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "65\n" +
+                "130\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "50\n" +
+                "null\n" +
+                "null\n" +
+                "90\n" +
+                "20\n" +
+                "75\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "40\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "60\n" +
+                "null\n" +
+                "40\n" +
+                "70\n" +
+                "null\n" +
+                "null\n" +
+                "65\n" +
+                "70\n" +
+                "null\n" +
+                "25\n" +
+                "60\n" +
+                "null\n" +
+                "null\n" +
+                "80\n" +
+                "90\n" +
+                "130\n" +
+                "120\n" +
+                "null\n" +
+                "null\n" +
+                "65\n" +
+                "60\n" +
+                "40\n" +
+                "80\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "");
         Assert.assertEquals(input, output);
     }
 
     @Test
     public void testPokemonMoveAccuracy() {
         final String input = PokemonMoveData.PokemonMoveAccuracy(1);
-        final String output = (" ");
+        final String output = ("100\n" +
+                "null\n" +
+                "95\n" +
+                "85\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "85\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "90\n" +
+                "null\n" +
+                "95\n" +
+                "100\n" +
+                "75\n" +
+                "75\n" +
+                "100\n" +
+                "95\n" +
+                "90\n" +
+                "100\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "100\n" +
+                "100\n" +
+                "null\n" +
+                "100\n" +
+                "null\n" +
+                "null\n" +
+                "100\n" +
+                "null\n" +
+                "null\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "null\n" +
+                "100\n" +
+                "85\n" +
+                "95\n" +
+                "100\n" +
+                "null\n" +
+                "100\n" +
+                "100\n" +
+                "null\n" +
+                "100\n" +
+                "null\n" +
+                "100\n" +
+                "null\n" +
+                "100\n" +
+                "100\n" +
+                "null\n" +
+                "null\n" +
+                "100\n" +
+                "100\n" +
+                "55\n" +
+                "100\n" +
+                "null\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "90\n" +
+                "85\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "100\n" +
+                "null\n" +
+                "null\n" +
+                "null\n" +
+                "");
         Assert.assertEquals(input, output);
     }
 
     @Test
     public void testPokemonMoveDamageClass() {
         final String input = PokemonMoveData.PokemonMoveDamageClass(1);
-        final String output = (" ");
+        final String output = ("special\n" +
+                "status\n" +
+                "physical\n" +
+                "physical\n" +
+                "physical\n" +
+                "physical\n" +
+                "physical\n" +
+                "physical\n" +
+                "physical\n" +
+                "physical\n" +
+                "status\n" +
+                "physical\n" +
+                "special\n" +
+                "status\n" +
+                "status\n" +
+                "physical\n" +
+                "special\n" +
+                "status\n" +
+                "status\n" +
+                "special\n" +
+                "status\n" +
+                "status\n" +
+                "physical\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "physical\n" +
+                "special\n" +
+                "physical\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "special\n" +
+                "status\n" +
+                "status\n" +
+                "special\n" +
+                "special\n" +
+                "special\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "physical\n" +
+                "status\n" +
+                "status\n" +
+                "physical\n" +
+                "physical\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "special\n" +
+                "status\n" +
+                "physical\n" +
+                "physical\n" +
+                "status\n" +
+                "status\n" +
+                "physical\n" +
+                "physical\n" +
+                "status\n" +
+                "physical\n" +
+                "special\n" +
+                "physical\n" +
+                "status\n" +
+                "physical\n" +
+                "special\n" +
+                "special\n" +
+                "physical\n" +
+                "status\n" +
+                "special\n" +
+                "special\n" +
+                "special\n" +
+                "special\n" +
+                "special\n" +
+                "status\n" +
+                "status\n" +
+                "status\n" +
+                "");
         Assert.assertEquals(input, output);
     }
+
     /*
     @Test
     public void testMoveLearnMethod() {
