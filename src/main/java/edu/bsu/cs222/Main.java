@@ -1,5 +1,8 @@
 package edu.bsu.cs222;
 
+import me.sargunvohra.lib.pokekotlin.client.PokeApi;
+import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
+
 import java.util.Scanner;
 
 public class Main{
@@ -36,7 +39,6 @@ public class Main{
         System.out.println(PokemonSelection.PokemonBaseSpeedStat(id)); //2
         System.out.println();
         System.out.println(PokemonMoveData.PokemonMove(id)); //2
-
 
         console.close();
 

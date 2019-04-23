@@ -69,19 +69,58 @@ public class PokemonMoveData {
         return sb.toString();
     }
 
-    //Only returns move learn methods that are included in the first generation
+    // Not sure what to do here
+    /*
     public static String PokemonMoveLearnMethod(int id) {
         PokeApi pokeApi = new PokeApiClient();
         StringBuilder sb = new StringBuilder();
         List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
-        for (PokemonMove pokemonMove : pokemonMoves) {
-            List<PokemonMoveVersion> pokemonMoveVersions = pokemonMove.getVersionGroupDetails();
-            for (PokemonMoveVersion pokemonMoveVersion : pokemonMoveVersions) {
-                if (pokemonMoveVersion.getVersionGroup().getName().equals("yellow") || pokemonMoveVersion.getVersionGroup().getName().equals("red-blue")) {
-                    sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+        List<PokemonMove> moveIds = pokeApi.getPokemon(id).getMoves();
+        for (int moveId = 0; moveId < moveIds.size(); moveId++) {
+            String generation = pokeApi.getMove(moveId).getGeneration().getName();
+            for (PokemonMove pokemonMove : pokemonMoves) {
+                List<PokemonMoveVersion> pokemonMoveVersions = pokemonMove.getVersionGroupDetails();
+                for (PokemonMoveVersion pokemonMoveVersion : pokemonMoveVersions) {
+                    if (generation.equals("generation-i")) {
+                        if (pokemonMoveVersion.getVersionGroup().getName().equals("yellow")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("red-blue")) {
+                            sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                        }
+                    } else if (generation.equals("generation-ii")) {
+                        if (pokemonMoveVersion.getVersionGroup().getName().equals("crystal")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("gold-silver")) {
+                            sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                        }
+                    } else if (generation.equals("generation-iii")) {
+                        if (pokemonMoveVersion.getVersionGroup().getName().equals("emerald")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("firered-leafgreen")) {
+                            sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                        }
+                    } else if (generation.equals("generation-iv")) {
+                        if (pokemonMoveVersion.getVersionGroup().getName().equals("diamond-pearl")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("platinum")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("heartgold-soulsilver")) {
+                            sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                        }
+                    } else if (generation.equals("generation-v")) {
+                        if (pokemonMoveVersion.getVersionGroup().getName().equals("black-white")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("black-2-white-2")) {
+                            sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                        }
+                    } else if (generation.equals("generation-vi")) {
+                        if (pokemonMoveVersion.getVersionGroup().getName().equals("x-y")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("omega-ruby-alpha-sapphire")) {
+                            sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                        }
+                    } else if (generation.equals("generation-vii")) {
+                        if (pokemonMoveVersion.getVersionGroup().getName().equals("sun-moon")
+                                || pokemonMoveVersion.getVersionGroup().getName().equals("ultra-sun-ultra-moon")) {
+                            sb.append(pokemonMoveVersion.getMoveLearnMethod().getName()).append("\n");
+                        }
+                    }
                 }
             }
         }
         return sb.toString();
-    }
+    } */
 }

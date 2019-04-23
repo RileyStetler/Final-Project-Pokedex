@@ -3,26 +3,13 @@ package edu.bsu.cs222;
 import me.sargunvohra.lib.pokekotlin.client.PokeApi;
 import me.sargunvohra.lib.pokekotlin.client.PokeApiClient;
 import me.sargunvohra.lib.pokekotlin.model.*;
-import me.sargunvohra.lib.pokekotlin.model.PokemonStat;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-
-import static java.lang.Math.round;
 
 //This class pulls all of the information that we need from PokeApi.co and separates them into different methods.
 //This is so that we can print more specifically what we want.
 public class PokemonSelection {
-
-    public static NamedApiResource NamedApiResources(int id) {
-        PokeApi pokeApi = new PokeApiClient();
-        String typeName = String.valueOf(pokeApi.getPokemon(id).getTypes());
-        NamedApiResource namedApiResource = new NamedApiResource(typeName, pokeApi.getPokemon(id).getName(), pokeApi.getPokemon(id).getId());
-        return namedApiResource;
-    }
 
     //Methods using the "Pokemon" class
     public static String PokemonId(int id) {
