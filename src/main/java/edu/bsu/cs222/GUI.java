@@ -1,6 +1,7 @@
 package edu.bsu.cs222;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 /**
@@ -63,7 +64,7 @@ public class GUI extends PokemonSelection {
 
                 info = new JTextArea(PokemonSelection.PokemonName(id));
                 c.weightx = 1.0;
-                c.gridwidth = 6;
+                c.gridwidth = 1;
                 c.gridx = 0;
                 c.gridy = 0;
                 info.setEditable(false);
@@ -71,19 +72,19 @@ public class GUI extends PokemonSelection {
                 pokemonInformation.add(info);
 
                 info = new JTextArea("ID: " + PokemonSelection.PokemonId(id));
-                c.gridx = 2;
+                c.gridx = 1;
                 c.gridy = 0;
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
-
+/*
                 button = new JButton("Button 3");
-                c.gridwidth = 3;
+                c.gridwidth = 0;
                 c.weightx = 0.0;
                 c.gridx = 2;
                 c.gridy = 2;
                 gridbag.setConstraints(button, c);
                 pokemonInformation.add(new JButton("Button 3"));
-
+*/
                 button = new JButton("Long-Named Button 4");
                 c.ipady = 40;      //make this component tall
                 c.weightx = 0.0;
