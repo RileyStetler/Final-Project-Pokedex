@@ -31,7 +31,7 @@ public class GUI extends PokemonSelection {
         JPanel pane = new JPanel(new GridBagLayout());
         Font f = new Font("Serif", Font.BOLD, 16);
 
-        for (int i = 1; i < 2; i++) {
+        for (int i = 1; i < 152; i++) {
             int id = i;
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridy = GridBagConstraints.RELATIVE;
@@ -64,7 +64,7 @@ public class GUI extends PokemonSelection {
 
                 info = new JTextArea(PokemonSelection.PokemonName(id));
                 c.weightx = 1.0;
-                c.gridwidth = 1;
+                c.gridwidth = 2;
                 c.gridx = 0;
                 c.gridy = 0;
                 info.setEditable(false);
@@ -72,38 +72,47 @@ public class GUI extends PokemonSelection {
                 pokemonInformation.add(info);
 
                 info = new JTextArea("ID: " + PokemonSelection.PokemonId(id));
-                c.gridx = 1;
+                c.weightx = 1.0;
+                c.gridwidth = 1;
+                c.gridx = 2;
+                c.gridy = 0;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.Types(id));
+                c.gridx = 3;
                 c.gridy = 0;
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
-/*
-                button = new JButton("Button 3");
-                c.gridwidth = 0;
+
+                info = new JTextArea(PokemonSelection.PokemonBaseHealthPointsStat(id));
+                //c.ipady = 40;      //make this component tall
                 c.weightx = 0.0;
-                c.gridx = 2;
-                c.gridy = 2;
-                gridbag.setConstraints(button, c);
-                pokemonInformation.add(new JButton("Button 3"));
-*/
-                button = new JButton("Long-Named Button 4");
-                c.ipady = 40;      //make this component tall
-                c.weightx = 0.0;
-                c.gridwidth = 3;
+                c.gridwidth = 1;
                 c.gridx = 0;
                 c.gridy = 1;
-                gridbag.setConstraints(button, c);
-                pokemonInformation.add(button);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
 
-                button = new JButton("Button 5");
-                c.ipady = 0;       //reset to default
-                c.weighty = 1.0;   //request any extra vertical space
-                c.anchor = GridBagConstraints.SOUTH; //bottom of space
-                c.insets = new Insets(10,0,0,0);  //top padding
-                c.gridx = 1;       //aligned with button 2
-                c.gridwidth = 2;   //2 columns wide
-                c.gridy = 2;       //third row
-                gridbag.setConstraints(button, c);
-                pokemonInformation.add(button);
+                info = new JTextArea(PokemonSelection.PokemonBaseAttackStat(id));
+                //c.ipady = 40;      //make this component tall
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 0;
+                c.gridy = 2;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseDefenseStat(id));
+                //c.ipady = 40;      //make this component tall
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 0;
+                c.gridy = 3;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
 
                 pokemonInformation.updateUI();
 
