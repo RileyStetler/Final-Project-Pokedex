@@ -1,7 +1,7 @@
 package edu.bsu.cs222;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -37,12 +37,6 @@ public class GUI extends PokemonSelection{
 
         JPanel pane = new JPanel(new GridBagLayout());
 
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridy = GridBagConstraints.RELATIVE;
-        constraints.gridx = 0;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.weightx = 1.0;
-        constraints.anchor = GridBagConstraints.NORTH;
 
 
         JButton b1 = new JButton();
@@ -51,11 +45,17 @@ public class GUI extends PokemonSelection{
             JButton pokemonNames = new JButton();
             pokemonNames.setText(String.valueOf(i));
             pane.add(pokemonNames);
-
+            GridBagConstraints constraints = new GridBagConstraints();
+            constraints.gridy = GridBagConstraints.RELATIVE;
+            constraints.gridx = 0;
+            constraints.fill = GridBagConstraints.HORIZONTAL;
+            constraints.weightx = 1.0;
+            constraints.anchor = GridBagConstraints.NORTH;
+            pane.add(pokemonNames, constraints);
+            constraints.weighty = 0;
+            pane.add(pokemonNames, constraints);
         }
-        pane.add(b1, constraints);
-        constraints.weighty = 0;
-        pane.add(b2, constraints);
+
         panel_1.add(pane);
 
 
