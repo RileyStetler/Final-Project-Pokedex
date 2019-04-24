@@ -51,8 +51,6 @@ public class GUI extends PokemonSelection {
             pane.add(pokemonNames);
             pokemonNames.addActionListener(e -> {
                 pokemonInformation.removeAll();
-                System.out.println(PokemonSelection.PokemonId(id));
-                System.out.println(PokemonSelection.PokemonName(id));
 
                 JButton button;
                 JTextArea info;
@@ -83,33 +81,34 @@ public class GUI extends PokemonSelection {
                 info = new JTextArea(PokemonSelection.Types(id));
                 c.gridx = 3;
                 c.gridy = 0;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
                 info = new JTextArea(PokemonSelection.PokemonBaseHealthPointsStat(id));
-                //c.ipady = 40;      //make this component tall
                 c.weightx = 0.0;
                 c.gridwidth = 2;
                 c.gridx = 0;
                 c.gridy = 1;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
                 info = new JTextArea("Height: " + PokemonSelection.PokemonHeight(id));
-                //c.ipady = 40;      //make this component tall
                 c.weightx = 0.0;
                 c.gridwidth = 1;
                 c.gridx = 2;
                 c.gridy = 1;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
                 info = new JTextArea("Weight: " + PokemonSelection.PokemonWeight(id));
-                //c.ipady = 40;      //make this component tall
                 c.weightx = 0.0;
                 c.gridwidth = 1;
                 c.gridx = 3;
                 c.gridy = 1;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -118,6 +117,7 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 4;
                 c.gridx = 0;
                 c.gridy = 2;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -126,6 +126,7 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 3;
                 c.gridx = 0;
                 c.gridy = 3;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -134,6 +135,7 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 3;
                 c.gridx = 0;
                 c.gridy = 4;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -142,6 +144,7 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 2;
                 c.gridx = 3;
                 c.gridy = 3;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -150,6 +153,7 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 2;
                 c.gridx = 3;
                 c.gridy = 4;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -158,6 +162,7 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 5;
                 c.gridx = 0;
                 c.gridy = 5;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -166,6 +171,7 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 4;
                 c.gridx = 0;
                 c.gridy = 6;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
@@ -174,16 +180,15 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 4;
                 c.gridx = 0;
                 c.gridy = 7;
+                info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
                 pokemonInformation.updateUI();
-
             });
 
             pane.add(pokemonNames, constraints);
             pokemonList.add(pane);
-
         }
 
         GridLayout griddy = new GridLayout(0, 2);
@@ -193,20 +198,5 @@ public class GUI extends PokemonSelection {
         window.setSize(800, 600);
         window.setVisible(true);
         window.setLocationRelativeTo(null);
-        System.out.println("DONE");
-
-        /*
-        GridBagLayout grid = new GridBagLayout();
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridy = GridBagConstraints.RELATIVE;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-
-        constraints.weightx = 0.0;
-        constraints.gridwidth = 2;
-        constraints.gridx = 0;
-        constraints.gridy = 1;
-        grid.setConstraints(panel_1, constraints);
-        window.add(panel_1);
-        */
     }
 }
