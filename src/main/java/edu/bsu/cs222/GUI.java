@@ -21,12 +21,6 @@ public class GUI extends PokemonSelection{
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         final JScrollPane scroll_2 = new JScrollPane(panel_2, JScrollPane.VERTICAL_SCROLLBAR_NEVER,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        panel_1.add(new JButton("Button 1"));
-        panel_1.add(new JButton("Button 2"));
-        panel_1.add(new JButton("Button 3"));
-        panel_1.add(new JButton("Button 4"));
-        panel_1.add(new JButton("Button 5"));
-        panel_1.add(new JButton("Button 6"));
 
         panel_2.add(new JButton("Button 1"));
         panel_2.add(new JButton("Button 2"));
@@ -37,10 +31,6 @@ public class GUI extends PokemonSelection{
 
         JPanel pane = new JPanel(new GridBagLayout());
 
-
-
-        JButton b1 = new JButton();
-        JButton b2 = new JButton();
         for (int i = 0; i < 130; i++) {
             JButton pokemonNames = new JButton();
             pokemonNames.setText(String.valueOf(i));
@@ -54,14 +44,15 @@ public class GUI extends PokemonSelection{
             pane.add(pokemonNames, constraints);
             constraints.weighty = 0;
             pane.add(pokemonNames, constraints);
+            panel_1.add(pane);
         }
 
-        panel_1.add(pane);
+
 
 
         GridLayout griddy = new GridLayout(0, 2);
         window.setLayout(griddy);
-        window.add(BorderLayout.WEST, pane);
+        window.add(BorderLayout.WEST, scroll_1);
         window.add(BorderLayout.EAST, scroll_2);
         window.setSize(600, 600);
         window.setVisible(true);
