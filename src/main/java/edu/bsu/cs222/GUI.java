@@ -31,7 +31,7 @@ public class GUI extends PokemonSelection {
         JPanel pane = new JPanel(new GridBagLayout());
         Font f = new Font("Serif", Font.BOLD, 16);
 
-        for (int i = 1; i < 152; i++) {
+        for (int i = 1; i < 25; i++) {
             int id = i;
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridy = GridBagConstraints.RELATIVE;
@@ -89,30 +89,93 @@ public class GUI extends PokemonSelection {
                 info = new JTextArea(PokemonSelection.PokemonBaseHealthPointsStat(id));
                 //c.ipady = 40;      //make this component tall
                 c.weightx = 0.0;
-                c.gridwidth = 1;
+                c.gridwidth = 2;
                 c.gridx = 0;
                 c.gridy = 1;
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
-                info = new JTextArea(PokemonSelection.PokemonBaseAttackStat(id));
+                info = new JTextArea("Height: " + PokemonSelection.PokemonHeight(id));
                 //c.ipady = 40;      //make this component tall
                 c.weightx = 0.0;
                 c.gridwidth = 1;
+                c.gridx = 2;
+                c.gridy = 1;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea("Weight: " + PokemonSelection.PokemonWeight(id));
+                //c.ipady = 40;      //make this component tall
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 3;
+                c.gridy = 1;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea();
+                c.weightx = 0.0;
+                c.gridwidth = 4;
                 c.gridx = 0;
                 c.gridy = 2;
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
-                info = new JTextArea(PokemonSelection.PokemonBaseDefenseStat(id));
-                //c.ipady = 40;      //make this component tall
+                info = new JTextArea(PokemonSelection.PokemonBaseAttackStat(id));
                 c.weightx = 0.0;
-                c.gridwidth = 1;
+                c.gridwidth = 3;
                 c.gridx = 0;
                 c.gridy = 3;
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
+                info = new JTextArea(PokemonSelection.PokemonBaseDefenseStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 3;
+                c.gridx = 0;
+                c.gridy = 4;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseSpecialAttackStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 3;
+                c.gridy = 3;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseAttackStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 3;
+                c.gridy = 4;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseSpeedStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 5;
+                c.gridx = 0;
+                c.gridy = 5;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea();
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 6;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea("Evolution Chain: " + PokemonSelection.PokemonEvolutions(id));
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 7;
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
 
                 pokemonInformation.updateUI();
 
