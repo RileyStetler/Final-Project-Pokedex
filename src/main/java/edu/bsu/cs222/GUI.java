@@ -3,6 +3,8 @@ package edu.bsu.cs222;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -26,12 +28,12 @@ public class GUI extends PokemonSelection {
         scroll_1.getVerticalScrollBar().setUnitIncrement(15);
         final JScrollPane scroll_2 = new JScrollPane(pokemonInformation, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-
+        scroll_2.getVerticalScrollBar().setUnitIncrement(15);
 
         JPanel pane = new JPanel(new GridBagLayout());
         Font f = new Font("Serif", Font.BOLD, 16);
 
-        for (int i = 1; i < 25; i++) {
+        for (int i = 1; i < 2; i++) {
             int id = i;
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridy = GridBagConstraints.RELATIVE;
@@ -180,6 +182,85 @@ public class GUI extends PokemonSelection {
                 c.gridwidth = 4;
                 c.gridx = 0;
                 c.gridy = 7;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea();
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 8;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                button = new JButton("Click for move INFO");
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 8;
+                info.setEditable(false);
+                gridbag.setConstraints(button, c);
+                pokemonInformation.add(button);
+                button.addActionListener(e1 -> {
+                    JFrame Moves = new JFrame("Move List");
+                    Moves.setVisible(true);
+                    Moves.setLocationRelativeTo(null);
+
+                });
+
+
+                info = new JTextArea(PokemonSelection.PokemonMove(id));
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 0;
+                c.gridy = 9;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonMoveType(id));
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 2;
+                c.gridy = 9;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonMovePower(id));
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 3;
+                c.gridy = 9;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonMovePP(id));
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 4;
+                c.gridy = 9;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonMoveAccuracy(id));
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 5;
+                c.gridy = 9;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonMoveDamageClass(id));
+                c.weightx = 0.0;
+                c.gridwidth = 1;
+                c.gridx = 2;
+                c.gridy = 9;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
