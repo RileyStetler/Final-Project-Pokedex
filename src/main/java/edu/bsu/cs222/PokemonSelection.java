@@ -117,20 +117,6 @@ public class PokemonSelection {
         return pokemon + ": " + statValue;
     }
 
-//A for-loop that will print the base stats automatically
-//CURRENTLY BROKEN
-/*
-    public static String PokemonBaseStat(int id) {
-        PokeApi pokeApi = new PokeApiClient();
-        List<PokemonStat> pokemon = pokeApi.getPokemon(id).getStats();
-        for(int i = 0; i < pokemon.size(); i++){
-            String pokemonName = pokeApi.getPokemon(id).getStats().get(i).getStat().getName();
-            String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(i).getBaseStat());
-            return pokemonName + ": " + statValue;
-        }
-        return null;
-    }
-*/
     public static String PokemonBaseSpecialDefenseStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(1).getStat().getName();
