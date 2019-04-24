@@ -18,7 +18,7 @@ public class GUI extends PokemonSelection{
         panel_1.setBackground(Color.gray);
         window.add(BorderLayout.NORTH, panel_1);
         final JScrollPane scroll_1 = new JScrollPane(panel_1, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         final JScrollPane scroll_2 = new JScrollPane(panel_2, JScrollPane.VERTICAL_SCROLLBAR_NEVER,
                 JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
@@ -32,9 +32,15 @@ public class GUI extends PokemonSelection{
         JPanel pane = new JPanel(new GridBagLayout());
 
         for (int i = 0; i < 130; i++) {
+            int finalI = i;
             JButton pokemonNames = new JButton();
             pokemonNames.setText(String.valueOf(i));
+            pokemonNames.setSize(100,50);
             pane.add(pokemonNames);
+            pokemonNames.addActionListener(e -> {
+                System.out.println(PokemonSelection.PokemonId(finalI));
+                System.out.println(PokemonSelection.PokemonName(finalI));
+            });
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridy = GridBagConstraints.RELATIVE;
             constraints.gridx = 0;
@@ -45,10 +51,9 @@ public class GUI extends PokemonSelection{
             constraints.weighty = 0;
             pane.add(pokemonNames, constraints);
             panel_1.add(pane);
+
+
         }
-
-
-
 
         GridLayout griddy = new GridLayout(0, 2);
         window.setLayout(griddy);
@@ -57,6 +62,5 @@ public class GUI extends PokemonSelection{
         window.setSize(600, 600);
         window.setVisible(true);
         window.setLocationRelativeTo(null);
-
     }
 }
