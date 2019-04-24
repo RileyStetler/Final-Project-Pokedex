@@ -11,7 +11,7 @@ public class GUI extends PokemonSelection{
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        JFrame window = new JFrame("Button Scroll Bar");
+        JFrame window = new JFrame("PokeDex");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel_1 = new JPanel();
         JPanel panel_2 = new JPanel();
@@ -19,8 +19,12 @@ public class GUI extends PokemonSelection{
         window.add(BorderLayout.NORTH, panel_1);
         final JScrollPane scroll_1 = new JScrollPane(panel_1, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        final JScrollPane scroll_2 = new JScrollPane(panel_2, JScrollPane.VERTICAL_SCROLLBAR_NEVER,
-                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        //Implement this code if we want the scroll bar on the left side
+        //scroll_1.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        //Allows for faster/slower scrolling
+        scroll_1.getVerticalScrollBar().setUnitIncrement(15);
+        final JScrollPane scroll_2 = new JScrollPane(panel_2, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         panel_2.add(new JButton("Button 1"));
         panel_2.add(new JButton("Button 2"));
@@ -31,15 +35,15 @@ public class GUI extends PokemonSelection{
 
         JPanel pane = new JPanel(new GridBagLayout());
 
-        for (int i = 0; i < 130; i++) {
-            int finalI = i;
+        for (int i = 1; i < 152; i++) {
+            int id = i;
             JButton pokemonNames = new JButton();
-            pokemonNames.setText(String.valueOf(i));
-            pokemonNames.setSize(100,50);
+            pokemonNames.setText(PokemonSelection.PokemonName(id));
+            pokemonNames.setPreferredSize(new Dimension(170,30));
             pane.add(pokemonNames);
             pokemonNames.addActionListener(e -> {
-                System.out.println(PokemonSelection.PokemonId(finalI));
-                System.out.println(PokemonSelection.PokemonName(finalI));
+                System.out.println(PokemonSelection.PokemonId(id));
+                System.out.println(PokemonSelection.PokemonName(id));
             });
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridy = GridBagConstraints.RELATIVE;
@@ -59,8 +63,9 @@ public class GUI extends PokemonSelection{
         window.setLayout(griddy);
         window.add(BorderLayout.WEST, scroll_1);
         window.add(BorderLayout.EAST, scroll_2);
-        window.setSize(600, 600);
+        window.setSize(800, 600);
         window.setVisible(true);
         window.setLocationRelativeTo(null);
+        System.out.println("DONE");
     }
 }
