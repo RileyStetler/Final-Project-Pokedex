@@ -33,7 +33,7 @@ public class GUI extends PokemonSelection {
         JPanel pane = new JPanel(new GridBagLayout());
         Font f = new Font("Serif", Font.BOLD, 16);
 
-        for (int i = 1; i < 2; i++) {
+        for (int i = 1; i < 152; i++) {
             int id = i;
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridy = GridBagConstraints.RELATIVE;
@@ -62,54 +62,47 @@ public class GUI extends PokemonSelection {
                 pokemonInformation.setLayout(gridbag);
                 c.fill = GridBagConstraints.HORIZONTAL;
 
-                info = new JTextArea(PokemonSelection.PokemonName(id));
+                info = new JTextArea(PokemonSelection.PokemonSprite(id));
                 c.weightx = 1.0;
-                c.gridwidth = 2;
+                c.gridwidth = 4;
                 c.gridx = 0;
                 c.gridy = 0;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonName(id));
+                c.weightx = 1.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 1;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.Types(id));
+                c.weightx = 1.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 2;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
                 info = new JTextArea("ID: " + PokemonSelection.PokemonId(id));
                 c.weightx = 1.0;
-                c.gridwidth = 1;
-                c.gridx = 2;
-                c.gridy = 0;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.Types(id));
-                c.gridx = 3;
-                c.gridy = 0;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.PokemonBaseHealthPointsStat(id));
-                c.weightx = 0.0;
-                c.gridwidth = 2;
+                c.gridwidth = 4;
                 c.gridx = 0;
-                c.gridy = 1;
+                c.gridy = 3;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
-                info = new JTextArea("Height: " + PokemonSelection.PokemonHeight(id));
+                info = new JTextArea(PokemonSelection.PokemonGeneration(id));
                 c.weightx = 0.0;
-                c.gridwidth = 1;
-                c.gridx = 2;
-                c.gridy = 1;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea("Weight: " + PokemonSelection.PokemonWeight(id));
-                c.weightx = 0.0;
-                c.gridwidth = 1;
-                c.gridx = 3;
-                c.gridy = 1;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 4;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
@@ -118,57 +111,12 @@ public class GUI extends PokemonSelection {
                 c.weightx = 0.0;
                 c.gridwidth = 4;
                 c.gridx = 0;
-                c.gridy = 2;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.PokemonBaseAttackStat(id));
-                c.weightx = 0.0;
-                c.gridwidth = 3;
-                c.gridx = 0;
-                c.gridy = 3;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.PokemonBaseDefenseStat(id));
-                c.weightx = 0.0;
-                c.gridwidth = 3;
-                c.gridx = 0;
-                c.gridy = 4;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.PokemonBaseSpecialAttackStat(id));
-                c.weightx = 0.0;
-                c.gridwidth = 2;
-                c.gridx = 3;
-                c.gridy = 3;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.PokemonBaseSpecialDefenseStat(id));
-                c.weightx = 0.0;
-                c.gridwidth = 2;
-                c.gridx = 3;
-                c.gridy = 4;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.PokemonBaseSpeedStat(id));
-                c.weightx = 0.0;
-                c.gridwidth = 5;
-                c.gridx = 0;
                 c.gridy = 5;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
-                info = new JTextArea();
+                info = new JTextArea(PokemonSelection.PokemonDescription(id));
                 c.weightx = 0.0;
                 c.gridwidth = 4;
                 c.gridx = 0;
@@ -177,7 +125,7 @@ public class GUI extends PokemonSelection {
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
-                info = new JTextArea("Evolution Chain: " + PokemonSelection.PokemonEvolutions(id));
+                info = new JTextArea();
                 c.weightx = 0.0;
                 c.gridwidth = 4;
                 c.gridx = 0;
@@ -186,7 +134,7 @@ public class GUI extends PokemonSelection {
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
-                info = new JTextArea();
+                info = new JTextArea("Height: " + PokemonSelection.PokemonHeight(id));
                 c.weightx = 0.0;
                 c.gridwidth = 4;
                 c.gridx = 0;
@@ -195,11 +143,120 @@ public class GUI extends PokemonSelection {
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
+                info = new JTextArea("Weight: " + PokemonSelection.PokemonWeight(id));
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 9;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea();
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 10;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseHealthPointsStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 0;
+                c.gridy = 11;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseSpeedStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 2;
+                c.gridy = 11;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseAttackStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 0;
+                c.gridy = 12;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseSpecialAttackStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 2;
+                c.gridy = 12;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseDefenseStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 0;
+                c.gridy = 13;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonBaseSpecialDefenseStat(id));
+                c.weightx = 0.0;
+                c.gridwidth = 2;
+                c.gridx = 2;
+                c.gridy = 13;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea();
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 14;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea("Evolution Trigger: " + PokemonSelection.PokemonEvolutionTrigger(id));
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 15;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea("Evolution Chain: " + PokemonSelection.PokemonEvolutions(id));
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 16;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea();
+                c.weightx = 0.0;
+                c.gridwidth = 4;
+                c.gridx = 0;
+                c.gridy = 17;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+/*
+                // Couldn't get this button to work
                 button = new JButton("Click for move INFO");
                 c.weightx = 0.0;
                 c.gridwidth = 4;
                 c.gridx = 0;
-                c.gridy = 8;
+                c.gridy = 18;
                 info.setEditable(false);
                 gridbag.setConstraints(button, c);
                 pokemonInformation.add(button);
@@ -209,13 +266,13 @@ public class GUI extends PokemonSelection {
                     Moves.setLocationRelativeTo(null);
 
                 });
-
-
+*/
+                // Doesn't fit to UI properly
                 info = new JTextArea(PokemonSelection.PokemonMove(id));
                 c.weightx = 0.0;
-                c.gridwidth = 1;
+                c.gridwidth = 2;
                 c.gridx = 0;
-                c.gridy = 9;
+                c.gridy = 18;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
@@ -224,16 +281,7 @@ public class GUI extends PokemonSelection {
                 c.weightx = 0.0;
                 c.gridwidth = 1;
                 c.gridx = 2;
-                c.gridy = 9;
-                info.setEditable(false);
-                gridbag.setConstraints(info, c);
-                pokemonInformation.add(info);
-
-                info = new JTextArea(PokemonSelection.PokemonMovePower(id));
-                c.weightx = 0.0;
-                c.gridwidth = 1;
-                c.gridx = 3;
-                c.gridy = 9;
+                c.gridy = 18;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
@@ -241,17 +289,26 @@ public class GUI extends PokemonSelection {
                 info = new JTextArea(PokemonSelection.PokemonMovePP(id));
                 c.weightx = 0.0;
                 c.gridwidth = 1;
+                c.gridx = 3;
+                c.gridy = 18;
+                info.setEditable(false);
+                gridbag.setConstraints(info, c);
+                pokemonInformation.add(info);
+
+                info = new JTextArea(PokemonSelection.PokemonMovePower(id));
+                c.weightx = 0.0;
+                c.gridwidth = 1;
                 c.gridx = 4;
-                c.gridy = 9;
+                c.gridy = 18;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
                 info = new JTextArea(PokemonSelection.PokemonMoveAccuracy(id));
                 c.weightx = 0.0;
-                c.gridwidth = 1;
-                c.gridx = 5;
-                c.gridy = 9;
+                c.gridwidth = 3/4;
+                c.gridx = 4;
+                c.gridy = 18;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
@@ -259,8 +316,8 @@ public class GUI extends PokemonSelection {
                 info = new JTextArea(PokemonSelection.PokemonMoveDamageClass(id));
                 c.weightx = 0.0;
                 c.gridwidth = 1;
-                c.gridx = 2;
-                c.gridy = 9;
+                c.gridx = 4;
+                c.gridy = 18;
                 info.setEditable(false);
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
