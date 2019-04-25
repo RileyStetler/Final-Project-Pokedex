@@ -1,6 +1,5 @@
 package edu.bsu.cs222;
 
-import me.sargunvohra.lib.pokekotlin.model.Pokemon;
 import org.junit.Assert;
 import org.junit.Test;
 

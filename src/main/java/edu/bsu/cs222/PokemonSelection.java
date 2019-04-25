@@ -9,15 +9,15 @@ import java.util.List;
 
 //This class pulls all of the information that we need from PokeApi.co and separates them into different methods.
 //This is so that we can print more specifically what we want.
-public class PokemonSelection {
+class PokemonSelection {
 
-    public static String PokemonSprite(int id) {
+    static String PokemonSprite(int id) {
         PokeApi pokeApi = new PokeApiClient();
         return pokeApi.getPokemon(id).getSprites().getFrontDefault();
     }
 
     //Methods using the "Pokemon" class
-    public static String PokemonId(int id) {
+    static String PokemonId(int id) {
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
         String one = "#00";
@@ -31,45 +31,45 @@ public class PokemonSelection {
         }
     }
 
-    public static String PokemonName(int id) {
+    static String PokemonName(int id) {
         PokeApi pokeApi = new PokeApiClient();
         return pokeApi.getPokemon(id).getName();
     }
 
-    public static String PokemonDescription(int id) {
+    static String PokemonDescription(int id) {
         PokeApi pokeApi = new PokeApiClient();
         return pokeApi.getPokemonSpecies(id).getFlavorTextEntries().get(1).getFlavorText();
     }
 
-    public static String PokemonHeight(int id) {
+    static String PokemonHeight(int id) {
         DecimalFormat df = new DecimalFormat("#.##");
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
         return (df.format(pokemon.getHeight()*0.1) + " m");
     }
 
-    public static String PokemonWeight(int id) {
+    static String PokemonWeight(int id) {
         DecimalFormat df = new DecimalFormat("#.##");
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
         return (df.format(pokemon.getWeight()*0.1) + " kg");
     }
 
-    public static String PokemonBaseExperience(int id) {
+    static String PokemonBaseExperience(int id) {
         PokeApi pokeApi = new PokeApiClient();
         Pokemon pokemon = pokeApi.getPokemon(id);
         return (pokemon.getBaseExperience() + " XP");
     }
 
     //Methods using the "PokemonSpecies" class
-    public static String PokemonGeneration(int id) {
+    static String PokemonGeneration(int id) {
         PokeApi pokeApi = new PokeApiClient();
         PokemonSpecies pokemonSpecies = pokeApi.getPokemonSpecies(id);
         return pokemonSpecies.getGeneration().getName();
     }
 
     //Methods using the "Type" class
-    public static String Types(int id) {
+    static String Types(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonType> pokemonTypes = pokeApi.getPokemon(id).getTypes();
         if(pokemonTypes.size() <= 1) {
@@ -85,7 +85,7 @@ public class PokemonSelection {
     }
 
     // Prints up to two of the normal abilities
-    public static String Abilities(int id) {
+    static String Abilities(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
         for (PokemonAbility pokemonAbility : pokemonAbilities) {
@@ -101,7 +101,7 @@ public class PokemonSelection {
     }
 
     // Prints the hidden ability
-    public static String HiddenAbility(int id) {
+    static String HiddenAbility(int id) {
         PokeApi pokeApi = new PokeApiClient();
         List<PokemonAbility> pokemonAbilities = pokeApi.getPokemon(id).getAbilities();
         for (PokemonAbility pokemonAbility : pokemonAbilities) {
@@ -113,107 +113,109 @@ public class PokemonSelection {
     }
 
     // Needs updated in order to avoid error if there is no location
-    public static String PokemonLocation(int id) {
+    static String PokemonLocation(int id) {
         PokeApi pokeApi = new PokeApiClient();
         PokemonSpecies pokemonSpecies = pokeApi.getPokemonSpecies(id);
         return pokemonSpecies.getHabitat().getName();
     }
 
 
-    public static String PokemonBaseSpeedStat(int id) {
+    static String PokemonBaseSpeedStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(0).getStat().getName();
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(0).getBaseStat());
         return pokemon + ": " + statValue;
     }
 
-    public static String PokemonBaseSpecialDefenseStat(int id) {
+    static String PokemonBaseSpecialDefenseStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(1).getStat().getName();
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(1).getBaseStat());
         return pokemon + ": " + statValue;
     }
 
-    public static String PokemonBaseSpecialAttackStat(int id) {
+    static String PokemonBaseSpecialAttackStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(2).getStat().getName();
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(2).getBaseStat());
         return pokemon + ": " + statValue;
     }
 
-    public static String PokemonBaseDefenseStat(int id) {
+    static String PokemonBaseDefenseStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(3).getStat().getName();
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(3).getBaseStat());
         return pokemon + ": " + statValue;
     }
 
-    public static String PokemonBaseAttackStat(int id) {
+    static String PokemonBaseAttackStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(4).getStat().getName();
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(4).getBaseStat());
         return pokemon + ": " + statValue;
     }
 
-    public static String PokemonBaseHealthPointsStat(int id) {
+    static String PokemonBaseHealthPointsStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(5).getStat().getName();
         String statValue = String.valueOf(pokeApi.getPokemon(id).getStats().get(5).getBaseStat());
         return pokemon + ": " + statValue;
     }
 
-    public static String PokemonEvolutions(int id) {
+    static String PokemonEvolutions(int id) {
         PokeApi pokeApi = new PokeApiClient();
         int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
         List<ChainLink> evolutionChain = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getEvolvesTo();
-        List<ChainLink> evolutionChain1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getEvolvesTo().get(0).getEvolvesTo();
         StringBuilder sb = new StringBuilder();
         if (evolutionChain.isEmpty()) {
             return "There are no other evolutions.";
-        } else {
-            if (evolutionChain.get(0).getEvolvesTo().isEmpty()) {
-                String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
-                String evolution2 = evolutionChain.get(0).getSpecies().getName();
-                if (evolutionChain.size()>1 && !pokeApi.getPokemon(id).getName().equals(evolution2)) {
-                    for (ChainLink evolutionChains : evolutionChain1) {
+        } else if (evolutionChain.get(0).getEvolvesTo().isEmpty()) {
+            String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
+            String evolution2 = evolutionChain.get(0).getSpecies().getName();
+            if (evolutionChain.size()>1) {
+                if (!pokeApi.getPokemon(id).getName().equals(evolution2)) {
+                    for (ChainLink evolutionChains : evolutionChain) {
                         sb.append(evolutionChains.getSpecies().getName()).append(", ");
                     }
                     return sb.delete(sb.length()-2, sb.length()).toString();
-                } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
-                    return evolution2;
                 } else {
                     return evolution1;
                 }
+            } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
+                return evolution2;
             } else {
-                String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
-                String evolution2 = evolutionChain.get(0).getSpecies().getName();
-                String evolution3 = evolutionChain.get(0).getEvolvesTo().get(0).getSpecies().getName();
-                if (evolutionChain1.size()>1) {
-                    if (pokeApi.getPokemon(id).getName().equals(evolution2)) {
-                        for (ChainLink evolutionChains1 : evolutionChain1) {
-                            sb.append(evolutionChains1.getSpecies().getName()).append(", ");
-                        }
-                        return evolution1 + ",(" + sb.delete(sb.length()-2, sb.length()).toString() + ")";
-                    } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
-                        for (ChainLink evolutionChains1 : evolutionChain1) {
-                            sb.append(evolutionChains1.getSpecies().getName()).append(", ");
-                        }
-                        return evolution2 + ",(" + sb.delete(sb.length()-2, sb.length()).toString() + ")";
-                    } else {
-                        return evolution1 + ", " + evolution2;
+                return evolution1;
+            }
+        } else {
+            List<ChainLink> evolutionChain1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getEvolvesTo().get(0).getEvolvesTo();
+            String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
+            String evolution2 = evolutionChain.get(0).getSpecies().getName();
+            String evolution3 = evolutionChain.get(0).getEvolvesTo().get(0).getSpecies().getName();
+            if (evolutionChain1.size()>1) {
+                if (pokeApi.getPokemon(id).getName().equals(evolution2)) {
+                    for (ChainLink evolutionChains1 : evolutionChain1) {
+                        sb.append(evolutionChains1.getSpecies().getName()).append(", ");
                     }
+                    return evolution1 + ",(" + sb.delete(sb.length()-2, sb.length()).toString() + ")";
                 } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
-                    return evolution2 + ", " + evolution3;
-                } else if (pokeApi.getPokemon(id).getName().equals(evolution2)) {
-                    return evolution1 + ", " + evolution3;
+                    for (ChainLink evolutionChains1 : evolutionChain1) {
+                        sb.append(evolutionChains1.getSpecies().getName()).append(", ");
+                    }
+                    return evolution2 + ",(" + sb.delete(sb.length()-2, sb.length()).toString() + ")";
                 } else {
                     return evolution1 + ", " + evolution2;
                 }
+            } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
+                return evolution2 + ", " + evolution3;
+            } else if (pokeApi.getPokemon(id).getName().equals(evolution2)) {
+                return evolution1 + ", " + evolution3;
+            } else {
+                return evolution1 + ", " + evolution2;
             }
         }
     }
 
-    public static String PokemonEvolutionTrigger(int id) {
+    static String PokemonEvolutionTrigger(int id) {
         PokeApi pokeApi = new PokeApiClient();
         int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
         ChainLink evolutionChain = pokeApi.getEvolutionChain(pokemonSpecies).getChain();
@@ -226,7 +228,8 @@ public class PokemonSelection {
         }
         return null;
     }
-    public static String PokemonMove(int id) {
+
+    static String PokemonMove(int id) {
         PokeApi pokeApi = new PokeApiClient();
         StringBuilder sb = new StringBuilder();
         List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
@@ -237,7 +240,7 @@ public class PokemonSelection {
     }
 
     //uses move ID, not Pokemon ID
-    public static String PokemonMoveType(int id) {
+    static String PokemonMoveType(int id) {
         PokeApi pokeApi = new PokeApiClient();
         StringBuilder sb = new StringBuilder();
         List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
@@ -247,7 +250,7 @@ public class PokemonSelection {
         return sb.toString();
     }
 
-    public static String PokemonMovePP(int id) {
+    static String PokemonMovePP(int id) {
         PokeApi pokeApi = new PokeApiClient();
         StringBuilder sb = new StringBuilder();
         List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
@@ -257,7 +260,7 @@ public class PokemonSelection {
         return sb.toString();
     }
 
-    public static String PokemonMovePower(int id) {
+    static String PokemonMovePower(int id) {
         PokeApi pokeApi = new PokeApiClient();
         StringBuilder sb = new StringBuilder();
         List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
@@ -267,7 +270,7 @@ public class PokemonSelection {
         return sb.toString();
     }
 
-    public static String PokemonMoveAccuracy(int id) {
+    static String PokemonMoveAccuracy(int id) {
         PokeApi pokeApi = new PokeApiClient();
         StringBuilder sb = new StringBuilder();
         List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
@@ -277,7 +280,7 @@ public class PokemonSelection {
         return sb.toString();
     }
 
-    public static String PokemonMoveDamageClass(int id) {
+    static String PokemonMoveDamageClass(int id) {
         PokeApi pokeApi = new PokeApiClient();
         StringBuilder sb = new StringBuilder();
         List<PokemonMove> pokemonMoves = pokeApi.getPokemon(id).getMoves();
@@ -286,7 +289,6 @@ public class PokemonSelection {
         }
         return sb.toString();
     }
-
 }
 
 
