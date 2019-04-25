@@ -150,7 +150,7 @@ public class GUI extends PokemonSelection {
                 gridbag.setConstraints(info, c);
                 pokemonInformation.add(info);
 
-                info = new JTextArea(PokemonSelection.PokemonBaseAttackStat(id));
+                info = new JTextArea(PokemonSelection.PokemonBaseSpecialDefenseStat(id));
                 c.weightx = 0.0;
                 c.gridwidth = 2;
                 c.gridx = 3;

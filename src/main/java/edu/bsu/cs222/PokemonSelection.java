@@ -110,6 +110,7 @@ public class PokemonSelection {
         return pokemonSpecies.getHabitat().getName();
     }
 
+
     public static String PokemonBaseSpeedStat(int id) {
         PokeApi pokeApi = new PokeApiClient();
         String pokemon = pokeApi.getPokemon(id).getStats().get(0).getStat().getName();
