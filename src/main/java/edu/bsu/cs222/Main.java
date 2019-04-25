@@ -38,7 +38,7 @@ public class Main{
         System.out.println(PokemonSelection.PokemonBaseSpecialDefenseStat(id)); //2
         System.out.println(PokemonSelection.PokemonBaseSpeedStat(id)); //2
         System.out.println();
-        System.out.println(PokemonMoveData.PokemonMove(id)); //2
+        System.out.println(PokemonSelection.PokemonMove(id)); //2
 
         console.close();
 

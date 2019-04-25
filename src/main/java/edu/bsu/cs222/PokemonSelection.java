@@ -157,13 +157,20 @@ public class PokemonSelection {
         PokeApi pokeApi = new PokeApiClient();
         int pokemonSpecies = pokeApi.getPokemonSpecies(id).getEvolutionChain().getId();
         List<ChainLink> evolutionChain = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getEvolvesTo();
+        List<ChainLink> evolutionChain1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getEvolvesTo().get(0).getEvolvesTo();
+        StringBuilder sb = new StringBuilder();
         if (evolutionChain.isEmpty()) {
             return "There are no other evolutions.";
         } else {
             if (evolutionChain.get(0).getEvolvesTo().isEmpty()) {
                 String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
                 String evolution2 = evolutionChain.get(0).getSpecies().getName();
-                if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
+                if (evolutionChain.size()>1 && !pokeApi.getPokemon(id).getName().equals(evolution2)) {
+                    for (ChainLink evolutionChains : evolutionChain1) {
+                        sb.append(evolutionChains.getSpecies().getName()).append(", ");
+                    }
+                    return sb.delete(sb.length()-2, sb.length()).toString();
+                } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
                     return evolution2;
                 } else {
                     return evolution1;
@@ -172,7 +179,21 @@ public class PokemonSelection {
                 String evolution1 = pokeApi.getEvolutionChain(pokemonSpecies).getChain().getSpecies().getName();
                 String evolution2 = evolutionChain.get(0).getSpecies().getName();
                 String evolution3 = evolutionChain.get(0).getEvolvesTo().get(0).getSpecies().getName();
-                if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
+                if (evolutionChain1.size()>1) {
+                    if (pokeApi.getPokemon(id).getName().equals(evolution2)) {
+                        for (ChainLink evolutionChains1 : evolutionChain1) {
+                            sb.append(evolutionChains1.getSpecies().getName()).append(", ");
+                        }
+                        return evolution1 + ",(" + sb.delete(sb.length()-2, sb.length()).toString() + ")";
+                    } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
+                        for (ChainLink evolutionChains1 : evolutionChain1) {
+                            sb.append(evolutionChains1.getSpecies().getName()).append(", ");
+                        }
+                        return evolution2 + ",(" + sb.delete(sb.length()-2, sb.length()).toString() + ")";
+                    } else {
+                        return evolution1 + ", " + evolution2;
+                    }
+                } else if (pokeApi.getPokemon(id).getName().equals(evolution1)) {
                     return evolution2 + ", " + evolution3;
                 } else if (pokeApi.getPokemon(id).getName().equals(evolution2)) {
                     return evolution1 + ", " + evolution3;
@@ -191,6 +212,14 @@ public class PokemonSelection {
             return "There is no evolution trigger.";
         } else if (pokeApi.getPokemon(id).getName().equals(evolutionChain.getEvolvesTo().get(0).getSpecies().getName())) {
             return evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
+            /*
+            if (evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName().equals("level-up")) {
+                return "level-up, " + evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getMinLevel();
+            } else if (evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName().equals("use-item")) {
+                return "use-item, " + evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getItem().getName();
+            } else {
+                return evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
+            } */
         } else if (pokeApi.getPokemon(id).getName().equals(evolutionChain.getEvolvesTo().get(0).getEvolvesTo().get(0).getSpecies().getName())) {
             return evolutionChain.getEvolvesTo().get(0).getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
         }

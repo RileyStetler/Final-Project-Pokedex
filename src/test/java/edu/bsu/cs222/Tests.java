@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import me.sargunvohra.lib.pokekotlin.model.Pokemon;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -193,6 +194,41 @@ public class Tests {
     public void testPokemonThreeEvolutions3() {
         final String input = PokemonSelection.PokemonEvolutions(6);
         final String output = ("charmander, charmeleon");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonAlternateEvolution1(){
+        final String input = PokemonSelection.PokemonEvolutions(43);
+        final String output = ("gloom,(vileplume, bellossom)");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonAlternateEvolution2() {
+        final String input = PokemonSelection.PokemonEvolutions(44);
+        final String output = ("oddish,(vileplume, bellossom)");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testPokemonIfAlternateEvolution() {
+        final String input = PokemonSelection.PokemonEvolutions(45);
+        final String output = ("oddish, gloom");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testEevee() {
+        final String input = PokemonSelection.PokemonEvolutions(133);
+        final String output = ("vaporeon, jolteon, flareon, espeon, umbreon, leafeon, glaceon, sylveon");
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testNotEevee() {
+        final String input = PokemonSelection.PokemonEvolutions(134);
+        final String output = ("eevee");
         Assert.assertEquals(input, output);
     }
 

@@ -8,7 +8,7 @@ public class MoveTests {
     // There is a lot here, so hold tight.
     @Test
     public void testPokemonMove() {
-        final String input = PokemonMoveData.PokemonMove(1);
+        final String input = PokemonSelection.PokemonMove(1);
         final String output = ("razor-wind\n" +
                 "swords-dance\n" +
                 "cut\n" +
@@ -93,7 +93,7 @@ public class MoveTests {
 
     @Test
     public void testPokemonMoveTypes() {
-        final String input = PokemonMoveData.PokemonMoveType(1);
+        final String input = PokemonSelection.PokemonMoveType(1);
         final String output = ("normal\n" +
                 "normal\n" +
                 "normal\n" +
@@ -178,7 +178,7 @@ public class MoveTests {
 
     @Test
     public void testPokemonMovePP() {
-        final String input = PokemonMoveData.PokemonMovePP(1);
+        final String input = PokemonSelection.PokemonMovePP(1);
         final String output = ("10\n" +
                 "20\n" +
                 "30\n" +
@@ -263,7 +263,7 @@ public class MoveTests {
 
     @Test
     public void testPokemonMovePower() {
-        final String input = PokemonMoveData.PokemonMovePower(1);
+        final String input = PokemonSelection.PokemonMovePower(1);
         final String output = ("80\n" +
                 "null\n" +
                 "50\n" +
@@ -348,7 +348,7 @@ public class MoveTests {
 
     @Test
     public void testPokemonMoveAccuracy() {
-        final String input = PokemonMoveData.PokemonMoveAccuracy(1);
+        final String input = PokemonSelection.PokemonMoveAccuracy(1);
         final String output = ("100\n" +
                 "null\n" +
                 "95\n" +
@@ -433,7 +433,7 @@ public class MoveTests {
 
     @Test
     public void testPokemonMoveDamageClass() {
-        final String input = PokemonMoveData.PokemonMoveDamageClass(1);
+        final String input = PokemonSelection.PokemonMoveDamageClass(1);
         final String output = ("special\n" +
                 "status\n" +
                 "physical\n" +
@@ -515,12 +515,4 @@ public class MoveTests {
                 "");
         Assert.assertEquals(input, output);
     }
-
-    /*
-    @Test
-    public void testMoveLearnMethod() {
-        final String input = PokemonMoveData.PokemonMoveLearnMethod(1);
-        final String output = ("level-up");
-        Assert.assertEquals(input, output);
-    } */
 }
