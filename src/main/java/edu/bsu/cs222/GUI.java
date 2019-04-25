@@ -33,7 +33,7 @@ public class GUI extends PokemonSelection {
         JPanel pane = new JPanel(new GridBagLayout());
         Font f = new Font("Serif", Font.BOLD, 16);
 
-        for (int i = 1; i < 152; i++) {
+        for (int i = 1; i < 808; i++) {
             int id = i;
             GridBagConstraints constraints = new GridBagConstraints();
             constraints.gridy = GridBagConstraints.RELATIVE;

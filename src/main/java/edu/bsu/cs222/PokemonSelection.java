@@ -38,7 +38,11 @@ class PokemonSelection {
 
     static String PokemonDescription(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        return pokeApi.getPokemonSpecies(id).getFlavorTextEntries().get(1).getFlavorText();
+        if (id < 102) {
+            return pokeApi.getPokemonSpecies(id).getFlavorTextEntries().get(1).getFlavorText();
+        } else {
+            return pokeApi.getPokemonSpecies(id).getFlavorTextEntries().get(2).getFlavorText();
+        }
     }
 
     static String PokemonHeight(int id) {
