@@ -7,8 +7,10 @@ import org.junit.Test;
 public class Tests {
 
     @Test
-    public void test() {
-        Assert.assertTrue(true);
+    public void testPokemonSprite() {
+        final String input = PokemonSelection.PokemonSprite(4);
+        final String output = ("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png");
+        Assert.assertEquals(input, output);
     }
 
     //Tests that use the "Pokemon" class
@@ -37,6 +39,16 @@ public class Tests {
     public void testReturnPokemonName() {
         final String input = PokemonSelection.PokemonName(4);
         final String output = "charmander";
+        Assert.assertEquals(input, output);
+    }
+
+    @Test
+    public void testDescription() {
+        final String input = PokemonSelection.PokemonDescription(4);
+        final String output = ("The flame that burns at the tip of its tail is an indication\n" +
+                "of its emotions. The flame wavers when Charmander\n" +
+                "is enjoying itself. If the Pokémon becomes enraged,\n" +
+                "the flame burns fiercely.");
         Assert.assertEquals(input, output);
     }
 

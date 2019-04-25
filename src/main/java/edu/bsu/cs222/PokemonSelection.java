@@ -11,6 +11,11 @@ import java.util.List;
 //This is so that we can print more specifically what we want.
 public class PokemonSelection {
 
+    public static String PokemonSprite(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        return pokeApi.getPokemon(id).getSprites().getFrontDefault();
+    }
+
     //Methods using the "Pokemon" class
     public static String PokemonId(int id) {
         PokeApi pokeApi = new PokeApiClient();
@@ -28,8 +33,12 @@ public class PokemonSelection {
 
     public static String PokemonName(int id) {
         PokeApi pokeApi = new PokeApiClient();
-        Pokemon pokemon = pokeApi.getPokemon(id);
-        return pokemon.getName();
+        return pokeApi.getPokemon(id).getName();
+    }
+
+    public static String PokemonDescription(int id) {
+        PokeApi pokeApi = new PokeApiClient();
+        return pokeApi.getPokemonSpecies(id).getFlavorTextEntries().get(1).getFlavorText();
     }
 
     public static String PokemonHeight(int id) {
@@ -212,14 +221,6 @@ public class PokemonSelection {
             return "There is no evolution trigger.";
         } else if (pokeApi.getPokemon(id).getName().equals(evolutionChain.getEvolvesTo().get(0).getSpecies().getName())) {
             return evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
-            /*
-            if (evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName().equals("level-up")) {
-                return "level-up, " + evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getMinLevel();
-            } else if (evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName().equals("use-item")) {
-                return "use-item, " + evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getItem().getName();
-            } else {
-                return evolutionChain.getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
-            } */
         } else if (pokeApi.getPokemon(id).getName().equals(evolutionChain.getEvolvesTo().get(0).getEvolvesTo().get(0).getSpecies().getName())) {
             return evolutionChain.getEvolvesTo().get(0).getEvolvesTo().get(0).getEvolutionDetails().get(0).getTrigger().getName();
         }
